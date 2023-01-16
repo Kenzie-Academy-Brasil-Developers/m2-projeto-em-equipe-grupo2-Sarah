@@ -1,0 +1,26 @@
+:root {
+    --line-height-default: 150%;
+    --color-grey-50: #0A0C0D;
+    --color-grey-100: #191C1F;
+    --color-grey-200: #212529;
+    --color-grey-300: #343A40;
+    --color-grey-400: #495057;
+    --color-grey-500: #868E96;
+    --color-grey-600: #ADB5BD;
+    --color-grey-700: #CED4DA;
+    --color-grey-800: #DEE2E6;
+    --color-grey-900: #EDF2FF;
+    --color-grey-1000: #F8F9FA;
+    --font-size-0: 4rem;
+    --font-size-1: 3rem;
+    --font-size-2: 2rem;
+    --font-size-3: 1.5rem;
+    --font-size-4: 1.25rem;
+    --font-size-5: 1rem;
+    --font-size-6: 0.8rem;
+    --font-size-7: 0.66rem;
+    --font-weight-Light: 300;
+    --font-weight-medium: 500;
+    --font-weigth-SemiBold: 600;
+    --font-weigth-Bold: 700;
+}
