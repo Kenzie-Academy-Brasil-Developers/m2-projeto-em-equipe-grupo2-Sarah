@@ -1,4 +1,4 @@
-import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV } from "./requests.js"
+import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV, getSpecifVaccine } from "./requests.js"
 
 const listVaccinesPhaseAll = await getAllVaccines()
 const listVaccinesPhaseI = await getAllVaccinesI()
@@ -11,15 +11,17 @@ const listVaccinesApproveds = await getAllApprovedVaccines()
 
 function createVaccineCards (element) {
     const li = document.createElement('li');
-   
+    
     const companyDiv = document.createElement('div');
     companyDiv.classList.add('vaccine-company__container');
 
     const company = document.createElement('h3');
     company.innerText = 'Company:';
-
+    
     const companyName = document.createElement('p');
     companyName.innerText = element.developerResearcher;
+    companyName.dataset.category = element.trimedCategory;
+    companyName.dataset.name = element.trimedName;
 
     companyDiv.append(company, companyName);
 
@@ -110,4 +112,105 @@ function phaseSelect(){
     })
 }
 
+function showMoreVaccineInformation () {
+    const allVaccinesTitle = document.querySelectorAll('.vaccine-company__container > p');
+    const body = document.querySelector('body');
+    
+    allVaccinesTitle.forEach( title => {
+        title.addEventListener('click', async (e) => {
+            let companyName = e.target.dataset.name;
+            let category = e.target.dataset.category;
+
+            let vaccineFound = await getSpecifVaccine(category, companyName);
+
+            let modal = vaccineModal(vaccineFound[0]);
+
+            body.append(modal);
+
+            modal.showModal();
+
+            closeModal ();
+        })
+    })
+}
+
+function vaccineModal (element) {
+    const modal = document.createElement('dialog');
+    modal.classList.add('vaccine__modal');
+
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('close-modal__button');
+    closeButton.innerText = 'X'
+
+    const companyDiv = document.createElement('div');
+    companyDiv.classList.add('vaccine-company__container');
+
+    const company = document.createElement('h3');
+    company.innerText = 'Company:';
+    
+    const companyName = document.createElement('p');
+    companyName.innerText = element.developerResearcher;
+    companyName.dataset.category = element.trimedCategory;
+    companyName.dataset.name = element.trimedName;
+
+    companyDiv.append(company, companyName);
+
+    const categoryDiv = document.createElement('div');
+    categoryDiv.classList.add('vaccine-category__container');
+
+    const category = document.createElement('h3');
+    category.innerText = 'Category:';
+
+    const categoryName = document.createElement('p');
+    categoryName.innerText = element.category;
+
+    categoryDiv.append(category, categoryName);
+
+    const stageDiv = document.createElement('div');
+    stageDiv.classList.add('vaccine-stage__container');
+
+    const stage = document.createElement('h3');
+    stage.innerText = 'Stage:';
+
+    const stageName = document.createElement('p');
+    stageName.innerText = element.phase;
+
+    stageDiv.append(stage, stageName);
+
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.classList.add('vaccine-description__container');
+
+    const description = document.createElement('h3');
+    description.innerText = 'Description:';
+
+    const descriptionName = document.createElement('p');
+    descriptionName.innerText = element.description;
+
+    descriptionDiv.append(description, descriptionName);
+
+    const nextStepsDiv = document.createElement('div');
+    nextStepsDiv.classList.add('vaccine-nextSteps__container');
+
+    const nextSteps = document.createElement('h3');
+    nextSteps.innerText = 'Next Steps:';
+
+    const nextStepsName = document.createElement('p');
+    nextStepsName.innerText = element.nextSteps;
+
+    nextStepsDiv.append(nextSteps, nextStepsName);
+
+    modal.append(closeButton, companyDiv, categoryDiv, stageDiv, descriptionDiv, nextStepsDiv);
+
+    return modal;
+}
+
+function closeModal () {
+    const closeButton = document.querySelector('.close-modal__button');
+    const modal = document.querySelector('.vaccine__modal');
+
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    })
+}
 phaseSelect()
+showMoreVaccineInformation ();
