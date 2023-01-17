@@ -1,4 +1,3 @@
-
 import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV } from "./requests.js"
 
 const listVaccinesPhaseAll = await getAllVaccines()
@@ -10,13 +9,9 @@ const listVaccinesApproveds = await getAllApprovedVaccines()
 
 
 
-//Julia
-
 function createVaccineCards (element) {
     const li = document.createElement('li');
-
-    const imageCard = document.createElement('img');
-
+   
     const companyDiv = document.createElement('div');
     companyDiv.classList.add('vaccine-company__container');
 
@@ -114,7 +109,6 @@ function phaseSelect(){
         }
     })
 }
-
 
 renderAllVaccineCards (listVaccinesPhaseAll)
 phaseSelect()
