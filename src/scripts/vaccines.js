@@ -115,5 +115,42 @@ function phaseSelect(){
     })
 }
 
-
 phaseSelect()
+
+function phaseButton(){
+    let buttonAllVaccine = document.querySelector(".all-vaccine__button")
+    let buttonPhaseI = document.querySelector(".phaseI-vaccine_button")
+    let buttonPhaseII = document.querySelector(".phaseII-vaccine_button")
+    let buttonPhaseIII = document.querySelector(".phaseIII-vaccine_button")
+    let buttonPhaseIV = document.querySelector(".phaseIV-vaccine_button")
+    let buttonAproved = document.querySelector(".aproved-vaccine_button")
+
+    const showCase = document.querySelector("#vaccines__list")
+    renderAllVaccineCards(listVaccinesPhaseAll)
+
+    buttonAllVaccine.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesPhaseAll)
+    })
+    buttonPhaseI.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesPhaseI)
+    })
+    buttonPhaseII.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesPhaseII)
+    })
+    buttonPhaseIII.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesPhaseIII)
+    })
+    buttonPhaseIV.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesPhaseIV)
+    })
+    buttonAproved.addEventListener("click", () =>{
+        showCase.innerHTML = ""
+        renderAllVaccineCards(listVaccinesApproveds)
+    })
+}
+phaseButton()
