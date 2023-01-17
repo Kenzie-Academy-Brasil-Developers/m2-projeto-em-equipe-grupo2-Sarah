@@ -1,8 +1,16 @@
 import { openNavbar } from "./navbar.js";
-import { getAllCountrys, getAllGlobalInformation } from "./requests.js";
+import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
 
 const listGlobal = await getAllGlobalInformation();
 const listAllCountry = await getAllCountrys();
+const listCountryAsia = await getAllCountrysInAsia()
+const listCountryAfrican = await getAllCountrysInAfrican()
+const listCountryEuropean = await getAllCountrysInEuropean()
+const listCountryNorthernAmerican = await getAllCountrysInNorthernAmerican()
+const listCountrySorthernAmerican = await getAllCountrysInSorthernAmerican()
+const listCountryOceanian =  await getAllCountrysInOceanian()
+
+
 let troca = true;
 
 function printGlobalInformation(obj) {
@@ -35,17 +43,68 @@ function searchCountryFilter(list, search) {
 function printSearch() {
   const inputSearch = document.querySelector(".search__country");
 
-  // const list = document.querySelector('.showcase')
+  const list = document.querySelector('.table__container--allCountryInformation')
 
-  inputSearch.addEventListener("change", (e) => {
-    // list.innerHTML = ''
+  inputSearch.addEventListener("keyup", (e) => {
+    list.innerHTML = ''
 
     const currentList = searchCountryFilter(listAllCountry, inputSearch.value);
     console.log(currentList);
 
-    // printCard(searchArray)
+    renderCards(currentList)
   });
 }
+
+function printCardsFilterByContinet(){
+    const select = document.querySelector('#select__continent')
+    const table = document.querySelector('.table__container--allCountryInformation')
+    const btns = document.querySelectorAll('.container__filterByContinent--desktopVersion > button')
+
+    select.addEventListener('change', ()=>{
+      table.innerHTML = ''
+      if(select.value == ''){
+        renderCards(listAllCountry)
+      } else if(select.value == 'Asian'){
+        renderCards(listCountryAsia)
+      }else if(select.value == 'African'){
+        renderCards(listCountryAfrican)
+      }else if(select.value == 'European'){
+        renderCards(listCountryEuropean)
+      }else if(select.value == 'Northern American'){
+        renderCards(listCountryNorthernAmerican)
+      }else if(select.value == 'Sorthern American'){
+        renderCards(listCountrySorthernAmerican)
+      }else if(select.value == 'Oceanian'){
+        renderCards(listCountryOceanian)
+      }
+
+    })
+    console.log(btns)
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        table.innerHTML = ''
+        if(btn.value == 'All'){
+          renderCards(listAllCountry)
+        } else if(btn.value == 'Asian'){
+          renderCards(listCountryAsia)
+        }else if(btn.value == 'African'){
+          renderCards(listCountryAfrican)
+        }else if(btn.value == 'European'){
+          renderCards(listCountryEuropean)
+        }else if(btn.value == 'Northern American'){
+          renderCards(listCountryNorthernAmerican)
+        }else if(btn.value == 'Sorthern American'){
+          renderCards(listCountrySorthernAmerican)
+        }else if(btn.value == 'Oceanian'){
+          renderCards(listCountryOceanian)
+        }
+      })
+    })
+
+}
+
+
 
  function renderCards(listAllCountry) {
   const tableListCountry = document.querySelector(
@@ -698,8 +757,9 @@ async function populationOrder(){
 }
 
 
+
 renderCards(listAllCountry);
 openNavbar();
 printGlobalInformation(listGlobal[0]);
-
+printCardsFilterByContinet()
 printSearch();

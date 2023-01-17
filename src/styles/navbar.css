@@ -98,6 +98,6 @@
     }
     
     .nav__list > li > a:hover::before{
-        width: 10git0%;
+        width: 100%;
     }
 }
