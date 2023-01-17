@@ -13,12 +13,9 @@ export async function newsRequest(){
         headers: requestsHeader
     })
 
-    .then(news => news.json())
-    .then(news => {
-        
-        return news
-    })
-
-    return news
+    const newsJson = await news.json();
+    if(!news.ok) {
+        console.log('Couldnt get all the news');
+    }
+    return newsJson;
 }
-
