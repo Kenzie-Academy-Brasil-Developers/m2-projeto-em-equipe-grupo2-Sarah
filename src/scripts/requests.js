@@ -73,3 +73,18 @@ export async function getAllApprovedVaccines(){
 
     return vaccinesJson
 }
+
+export async function getSpecifVaccine (category, name) {
+    const vaccine = await fetch(`https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/vaccines/get-vaccines/${category}/${name}`, {
+        method: 'GET',
+        headers: requestsHeader
+    });
+
+    const vaccineJson = await vaccine.json();
+
+    if(!vaccine.ok) {
+        console.log('Vaccine not found');
+    }
+
+    return vaccineJson;
+}

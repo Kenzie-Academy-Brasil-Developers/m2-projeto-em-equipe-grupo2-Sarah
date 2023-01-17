@@ -1,0 +1,184 @@
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+main .main__container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .main__container .main__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+main .main__container .main__header select {
+    height: 2rem;
+    text-align: center;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-medium);
+    appearance: none;
+    background-color: var(--color-grey-1000);
+    outline: none;
+    background-image: url('../assets/arrow-select.svg');
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: 95%;
+}
+
+main .main__container .desktop__container .desktop__container--aside {
+    display: none;
+}
+
+main .main__container .desktop__container .desktop_container--main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .main__container .desktop__container .desktop_container--main > h2 {
+    font-size: var(--font-size-3);
+    margin-top: 2rem;
+    font-weight: var(--font-weigth-Bold);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list {
+    max-height: 42rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid #000;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li > div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li > div h3 {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weigth-Bold);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li > div p {
+    line-height: var(--line-height-default);
+    font-size: var(--font-size-5);
+}
+
+@media(min-width: 1024px) {
+    main .main__container {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        height: 100vh;
+    }
+    
+    main .main__container .main__header {
+        display: none;
+    }
+
+    main .main__container .desktop__container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        width: 100%;
+    }
+      
+    main .main__container .desktop__container .desktop__container--aside {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        max-width: 30%;
+        background-color: aliceblue;
+        gap: 0.5rem;
+        border: 1px solid #000;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+    }
+
+    main .main__container .desktop__container .desktop__container--aside > h2 {
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weigth-Bold);
+        margin-bottom: 1.5rem;
+    }
+
+    main .main__container .desktop__container .desktop__container--aside button {
+        height: 3rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: var(--brand-0);
+        color: var(--color-grey-1000);
+        font-size: var(--font-size-5);
+        font-weight: var(--font-weigth-Bold);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 70%;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main > h2 {
+        font-size: var(--font-size-3);
+        margin-top: 0;
+        font-weight: var(--font-weigth-Bold);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list {
+        max-height: 42rem;
+        width: 100%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        border: 1px solid #000;
+        padding: 1rem;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 11rem;
+        height: 100%;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div h3 {
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weigth-Bold);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div p {
+        line-height: var(--line-height-default);
+        font-size: var(--font-size-5);
+    }
+}

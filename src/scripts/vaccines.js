@@ -1,5 +1,4 @@
-
-import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV } from "./requests.js"
+import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV, getSpecifVaccine } from "./requests.js"
 
 const listVaccinesPhaseAll = await getAllVaccines()
 const listVaccinesPhaseI = await getAllVaccinesI()
@@ -10,21 +9,19 @@ const listVaccinesApproveds = await getAllApprovedVaccines()
 
 
 
-//Julia
-
 function createVaccineCards (element) {
     const li = document.createElement('li');
-
-    const imageCard = document.createElement('img');
-
+    
     const companyDiv = document.createElement('div');
     companyDiv.classList.add('vaccine-company__container');
 
     const company = document.createElement('h3');
     company.innerText = 'Company:';
-
+    
     const companyName = document.createElement('p');
     companyName.innerText = element.developerResearcher;
+    companyName.dataset.category = element.trimedCategory;
+    companyName.dataset.name = element.trimedName;
 
     companyDiv.append(company, companyName);
 
@@ -54,7 +51,7 @@ function createVaccineCards (element) {
     descriptionDiv.classList.add('vaccine-description__container');
 
     const description = document.createElement('h3');
-    description.innerText = 'description:';
+    description.innerText = 'Description:';
 
     const descriptionName = document.createElement('p');
     descriptionName.innerText = element.description;
@@ -114,6 +111,7 @@ function phaseSelect(){
         }
     })
 }
+
 
 phaseSelect()
 
