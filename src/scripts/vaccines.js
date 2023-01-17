@@ -49,7 +49,7 @@ function createVaccineCards (element) {
     descriptionDiv.classList.add('vaccine-description__container');
 
     const description = document.createElement('h3');
-    description.innerText = 'description:';
+    description.innerText = 'Description:';
 
     const descriptionName = document.createElement('p');
     descriptionName.innerText = element.description;
@@ -89,26 +89,25 @@ function renderAllVaccineCards (array) {
 function phaseSelect(){
     const selectTag = document.querySelector("select")
 
-    // const showCase = document.querySelector("")
-    // imprimir todas vacinas //
+    const showCase = document.querySelector("#vaccines__list")
+    renderAllVaccineCards(listVaccinesPhaseAll)
     
     selectTag.addEventListener("change", () => {
-        // showCase.innerHTML = ""
+        showCase.innerHTML = ""
         if(selectTag.value == "All"){
-            console.log(listVaccinesPhaseAll)
+            renderAllVaccineCards(listVaccinesPhaseAll)
         }else if(selectTag.value == "Phase-I"){
-            console.log(listVaccinesPhaseI)
+            renderAllVaccineCards(listVaccinesPhaseI)
         }else if(selectTag.value == "Phase-II"){
-            console.log(listVaccinesPhaseII)
+            renderAllVaccineCards(listVaccinesPhaseII)
         }else if(selectTag.value == "Phase-III"){
-            console.log(listVaccinesPhaseIII)
+            renderAllVaccineCards(listVaccinesPhaseIII)
         }else if(selectTag.value == "Phase-IV"){
-            console.log(listVaccinesPhaseIV)
+            renderAllVaccineCards(listVaccinesPhaseIV)
         }else if(selectTag.value == "FDA-Aproved"){
-            console.log(listVaccinesApproveds)
+            renderAllVaccineCards(listVaccinesApproveds)
         }
     })
 }
 
-renderAllVaccineCards (listVaccinesPhaseAll)
 phaseSelect()
