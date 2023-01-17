@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-  
-
-
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/styles/reset.css">
-    <link rel="stylesheet" href="./src/styles/global-styles.css">
-    <link rel="stylesheet" href="./src/styles/index.css">
-    <link rel="stylesheet" href="./src/styles/navbar.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./src/styles/reset.css" />
+    <link rel="stylesheet" href="./src/styles/global-styles.css" />
+    <link rel="stylesheet" href="./src/styles/index.css" />
+    <link rel="stylesheet" href="./src/styles/navbar.css" />
+  </head>
+  <body>
     <header class="header__container">
-        <div class="container__logo">
-            <span></span>
-            <h3>Logo </h3>
+      <div class="container__logo">
+        <span></span>
+        <h3>Logo</h3>
+      </div>
+
+      <nav class="container__nav">
+        <div class="mobile__menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
         </div>
 
-        <nav class="container__nav">
-            <div class="mobile__menu">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-
-            <ul class="nav__list">
-                <li><a id=""  href="">COVID-19</a></li>
-                <span>|</span>
-                <li><a id="" href="">VACCINE</a></li>
-                <span>|</span>
-                <li><a id="" href="">NEWS</a></li>
-            </ul>
-        </nav>
+        <ul class="nav__list">
+          <li><a id="" href="">COVID-19</a></li>
+          <span>|</span>
+          <li><a id="" href="">VACCINE</a></li>
+          <span>|</span>
+          <li><a id="" href="">NEWS</a></li>
+        </ul>
+      </nav>
     </header>
-    
-    <main>
 
+    <main>
+      <section>
         <article class="article__container--globalInformation">
-            <div class="container__global--specificInformation">
-                <h3>TOTAL CASES</h3>
-                <span class="total__cases"></span>
-            </div>
-            <div class="container__global--specificInformation">
-                <h3>NEW CASES</h3>
-                <span class="total__newCases"></span>
-            </div>
-            <div class="container__global--specificInformation">
-                <h3>ACTIVE CASES</h3>
-                <span class="total__activeCases"></span>
-            </div>
-            <div class="container__global--specificInformation">
-                <h3>CRITICAL</h3>
-                <span class="total__critical"></span>
-            </div>
-            <div class="container__global--specificInformation">
-                <h3>TOAL DEATHS</h3>
-                <span class="total__deaths"></span>
-            </div>
-            <div class="container__global--specificInformation">
-                <h3>NEW DEATHS</h3>
-                <span class="total__newDeaths"></span>
-            </div>
+          <div class="container__global--specificInformation">
+            <h3>TOTAL CASES</h3>
+            <span class="total__cases"></span>
+          </div>
+          <div class="container__global--specificInformation">
+            <h3>NEW CASES</h3>
+            <span class="total__newCases"></span>
+          </div>
+          <div class="container__global--specificInformation">
+            <h3>ACTIVE CASES</h3>
+            <span class="total__activeCases"></span>
+          </div>
+          <div class="container__global--specificInformation">
+            <h3>CRITICAL</h3>
+            <span class="total__critical"></span>
+          </div>
+          <div class="container__global--specificInformation">
+            <h3>TOAL DEATHS</h3>
+            <span class="total__deaths"></span>
+          </div>
+          <div class="container__global--specificInformation">
+            <h3>NEW DEATHS</h3>
+            <span class="total__newDeaths"></span>
+          </div>
         </article>
 
         <article class="article__container--countryIformation">
-            <input type="text" class="search__country" placeholder="Search country ...">
-            <!-- Showcase (ul) -->
-            <table class="table__container--allCountryInformation">
-
-            </table>
+          <div>
+            <!-- worldData -->
+            <input
+              type="text"
+              class="search__country"
+              placeholder="Search country ..."
+            />
+          </div>
+          <table class="table__container--allCountryInformation"></table>
         </article>
-
+      </section>
     </main>
 
     <script type="module" src="./src/scripts/index.js"></script>
-    
-</body>
+  </body>
 </html>
