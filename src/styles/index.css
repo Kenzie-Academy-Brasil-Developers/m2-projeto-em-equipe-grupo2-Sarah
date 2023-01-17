@@ -1,0 +1,88 @@
+
+main{
+    padding-top: 15vh;
+}
+
+.article__container--globalInformation{
+    background: linear-gradient(90deg,  var(--background-2), var(--background-1));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.container__global--specificInformation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+
+.container__global--specificInformation > span{
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.total__cases,
+.total__newCases{
+    color: var(--brand-1);
+}
+
+
+.total__activeCases{
+    color: var(--brand-2);
+}
+
+.total__critical{
+    color: var(--brand-5);
+}
+
+.total__deaths,
+.total__newDeaths{
+    color: var(--brand-3);
+}
+
+.search__country{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 4px 0;
+    /* font-size: var(--font-size-6); */
+    width: 80%;
+    /* color: var(--color-primary-darkMode); */
+    color: #fff;
+    margin-bottom: 1px;
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+.search__country::placeholder{
+    /* color: var(--color-primary-darkMode-opacity); */
+    letter-spacing: 3px;
+    /* font-size: var(--font-size-6); */
+}
+
+
+@media(min-width: 1024px){
+    .article__container--globalInformation{
+        background: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+
+    }
+
+    .container__global--specificInformation{
+        width: 350px;
+        background: linear-gradient(90deg,  var(--background-2), var(--background-1));
+        border-bottom: 1px solid rgb(237, 242, 255, 0.5);
+        border-left: 1px solid rgb(237, 242, 255, 0.5);
+        padding: 15px;
+    }
+}
