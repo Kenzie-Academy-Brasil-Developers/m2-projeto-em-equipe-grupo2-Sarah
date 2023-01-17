@@ -25,7 +25,13 @@
         <div main__container>
             <div main__header>
                 <select name="phase" id="phase">
-                    <option value="">Select Phase</option>
+                    <option value="" disabled>Select Phases</option>
+                    <option value="All">All</option>
+                    <option value="Phase-I">Phase-I</option>
+                    <option value="Phase-II">Phase-II</option>
+                    <option value="Phase-III">Phase-III</option>
+                    <option value="Phase-IV">Phase-IV</option>
+                    <option value="FDA-Aproved">FDA-Aproved</option>
                 </select>
 
                 <div class="desktop__container">
@@ -48,6 +54,8 @@
 
         </div>
     </main>
+
+    <script type="module" src="../scripts/vaccines.js"></script>
     
 </body>
 </html>

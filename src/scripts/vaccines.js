@@ -1,25 +1,41 @@
-const requestsHeader = {
-    'X-RapidAPI-Key': 'dfbf9a3fdfmsh0e58794cb87a218p16186bjsn15d4aea76006',
-    'X-RapidAPI-Host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
-}
+import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV } from "./requests.js"
+
+const listVaccinesPhaseAll = await getAllVaccines()
+const listVaccinesPhaseI = await getAllVaccinesI()
+const listVaccinesPhaseII = await getAllVaccinesII()
+const listVaccinesPhaseIII = await getAllVaccinesIII()
+const listVaccinesPhaseIV = await getAllVaccinesIV()
+const listVaccinesApproveds = await getAllApprovedVaccines()
+
+
+
+
+
+
+
 function phaseSelect(){
     const selectTag = document.querySelector("select")
 
-    // const listPhase = functioPhase
+    // const showCase = document.querySelector("")
+    // imprimir todas vacinas //
+    
+    selectTag.addEventListener("change", () => {
+        // showCase.innerHTML = ""
+        if(selectTag.value == "All"){
+            console.log(listVaccinesPhaseAll)
+        }else if(selectTag.value == "Phase-I"){
+            console.log(listVaccinesPhaseI)
+        }else if(selectTag.value == "Phase-II"){
+            console.log(listVaccinesPhaseII)
+        }else if(selectTag.value == "Phase-III"){
+            console.log(listVaccinesPhaseIII)
+        }else if(selectTag.value == "Phase-IV"){
+            console.log(listVaccinesPhaseIV)
+        }else if(selectTag.value == "FDA-Aproved"){
+            console.log(listVaccinesApproveds)
+        }
 
-    functionPhase.forEach(phases => {
-        let option = document.querySelector("option")
-        option.innerText = phases.phase
-        option.value = phases.phase
-    })
-
-    selectTag.addEventListener("change", async () => {
-        const phases = await fetch (`https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/vaccines/get-all-vaccines-${selectTag.value}`,{
-            method: 'GET',
-            headers: requestsHeader
-        })
-        .then(res => res.json())
-        .then(res => (res))
+        
 
     })
 }
