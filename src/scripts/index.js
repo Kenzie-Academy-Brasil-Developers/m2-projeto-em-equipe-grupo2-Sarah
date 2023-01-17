@@ -425,17 +425,17 @@ async function totalDeathsOrder(){
       const orderList = listAllCountry;
       orderList.sort((a, b) => {
         if (troca == true) {
-          if (a.ActiveCases > b.ActiveCases) {
+          if (a.TotalDeaths > b.TotalDeaths) {
             return 1;
-          } else if (a.Serious_Critical < b.ActiveCases) {
+          } else if (a.TotalDeaths < b.TotalDeaths) {
             return -1;
           } else {
             return 0;
           }
         } else {
-          if (a.ActiveCases < b.ActiveCases) {
+          if (a.TotalDeaths < b.TotalDeaths) {
             return 1;
-          } else if (a.ActiveCases > b.ActiveCases) {
+          } else if (a.TotalDeaths > b.TotalDeaths) {
             return -1;
           } else {
             return 0;
