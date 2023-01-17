@@ -32,3 +32,7 @@
     --font-weigth-SemiBold: 600;
     --font-weigth-Bold: 700;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
