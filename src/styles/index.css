@@ -67,7 +67,22 @@ main{
     letter-spacing: 3px;
     /* font-size: var(--font-size-6); */
 }
+table {
+    /* display: table; */
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
 
+.table__container--allCountryInformation{
+  
+    margin-top: 90px;
+    border-radius: 0 0 10px 10px;
+    overflow: scroll; 
+    
+}
 
 @media(min-width: 1024px){
     .article__container--globalInformation{
