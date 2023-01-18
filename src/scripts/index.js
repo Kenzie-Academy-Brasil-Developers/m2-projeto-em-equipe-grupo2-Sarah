@@ -1,4 +1,4 @@
-import { activeStyleNavbar, openNavbar } from "./navbar.js";
+import { openNavbar } from "./navbar.js";
 import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
 
 const listGlobal = await getAllGlobalInformation();
@@ -812,7 +812,6 @@ window.onload = function(){
 
 renderCards(listAllCountry);
 openNavbar();
-activeStyleNavbar()
 printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
