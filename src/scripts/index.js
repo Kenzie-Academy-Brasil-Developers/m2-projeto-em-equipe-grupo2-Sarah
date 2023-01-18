@@ -104,7 +104,6 @@ function printCardsFilterByContinet(){
 }
 
 
-
  function renderCards(listAllCountry) {
   const tableListCountry = document.querySelector(
     ".table__container--allCountryInformation"
