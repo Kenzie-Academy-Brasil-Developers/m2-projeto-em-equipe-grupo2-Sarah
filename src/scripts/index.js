@@ -49,7 +49,7 @@ function printSearch() {
     list.innerHTML = ''
 
     const currentList = searchCountryFilter(listAllCountry, inputSearch.value);
-    console.log(currentList);
+
 
     renderCards(currentList)
   });
@@ -79,7 +79,7 @@ function printCardsFilterByContinet(){
       }
 
     })
-    console.log(btns)
+
 
     btns.forEach(btn => {
       btn.addEventListener('click', ()=>{
