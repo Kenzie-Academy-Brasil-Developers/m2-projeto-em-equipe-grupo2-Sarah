@@ -1,6 +1,20 @@
 
-main{
+/* body{
+    width: 100vw;
+    box-sizing: border-box;
+} */
+
+.main__container--homePage{
     padding-top: 15vh;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+
+    /* align-items: center; */
+
+    /* width: 100vw; */
+    /* overflow-x: none; */
+    /* box-sizing: border-box; */
 }
 
 .article__container--globalInformation{
@@ -83,8 +97,89 @@ table {
     overflow: scroll; 
     
 }
+#select__continent{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 4px 0;
+    /* font-size: var(--font-size-6); */
+    width: 80%;
+    color: var(--color-grey-900);
+    margin-bottom: 1px;
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+#select__continent > option{
+    color: var(--color-grey-50);
+}
+
+.section__container--mainInformation{
+    max-width: 95%;
+}
+
+.container__filterByContinent--desktopVersion{
+    width: 15%;
+    display: none;
+    background-color: var(--color-grey-200);
+}
+
+.container__filterByContinent--desktopVersion > button{
+    height: 50px;
+    width: 90%;
+    /* margin: auto; */
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #083358;
+    color: var(--color-grey-900);
+    font-size: var(--font-size-4);
+}
+
+
+.container__filterByContinent--desktopVersion > button:hover{
+    background-color: #0D63A5;
+}
+
+/*TABLE*/
+.container__table{
+    width: 100%;
+    height: 50vh;
+    overflow-x: auto;
+}
+
+.table__container--allCountryInformation{
+    /* overflow-x: auto; */
+
+}
+
 
 @media(min-width: 1024px){
+    .main__container--homePage{
+        max-width: 100vw;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+    }
+    .container__filterByContinent--desktopVersion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        height: fit-content;
+        padding: 20px 10px;
+        border-radius: 10px;
+    }
+
+    .section__container--mainInformation{
+        max-width: 85%;
+    }
+
+    #select__continent{
+        display: none;
+    }
     .article__container--globalInformation{
         background: none;
         flex-direction: row;
@@ -100,4 +195,6 @@ table {
         border-left: 1px solid rgb(237, 242, 255, 0.5);
         padding: 15px;
     }
+
+
 }

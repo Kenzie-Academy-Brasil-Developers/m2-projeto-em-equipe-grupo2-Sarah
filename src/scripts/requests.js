@@ -25,3 +25,69 @@ export async function getAllCountrys(){
 
     return listGlobalJson
 }
+
+export async function getAllCountrysInAsia(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/asia', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
+
+export async function getAllCountrysInAfrican(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/africa', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
+
+export async function getAllCountrysInEuropean(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/europe', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
+
+export async function getAllCountrysInNorthernAmerican(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/northamerica', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
+
+export async function getAllCountrysInSorthernAmerican(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/southamerica', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
+
+export async function getAllCountrysInOceanian(){
+    const list = await fetch('https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/australia', {
+        method: 'GET',
+        headers: requestsHeader
+    })
+
+    const listJson = await list.json()
+
+    return listJson
+}
