@@ -105,7 +105,6 @@ function printCardsFilterByContinet(){
 }
 
 
-
  function renderCards(listAllCountry) {
   const tableListCountry = document.querySelector(
     ".table__container--allCountryInformation"
@@ -210,38 +209,56 @@ function printCardsFilterByContinet(){
   let i = 0;
   listAllCountry.forEach((element) => {
     i++;
+
+
+
     const tittle = document.createElement("tr");
 
     const tittleNum = document.createElement("th");
     tittleNum.innerText = i;
+    tittleNum.classList.add('title__num')
     const tittleCountry = document.createElement("th");
     tittleCountry.innerText = element.Country;
     const tittleTotalCases = document.createElement("th");
     tittleTotalCases.innerText = element.TotalCases;
+    tittleTotalCases.classList.add('total__cases')
     const tittleNewCases = document.createElement("th");
     tittleNewCases.innerText = element.NewCases;
+    tittleNewCases.classList.add('total__newCases')
     const tittleInfectionRisk = document.createElement("th");
     tittleInfectionRisk.innerText = element.Infection_Risk;
+    tittleInfectionRisk.classList.add('total__cases')
     const tittleSeriusCritical = document.createElement("th");
     tittleSeriusCritical.innerText = element.Serious_Critical;
+    tittleSeriusCritical.classList.add('total__critical')
     const tittleActivesCases = document.createElement("th");
     tittleActivesCases.innerText = element.ActiveCases;
+    tittleActivesCases.classList.add('total__activeCases')
     const tittleTotalDeaths = document.createElement("th");
     tittleTotalDeaths.innerText = element.TotalDeaths;
+    tittleTotalDeaths.classList.add('total__deaths')
     const tittleNewDeaths = document.createElement("th");
     tittleNewDeaths.innerText = element.NewDeaths;
+    tittleNewDeaths.classList.add('total__deaths')
     const tittleCaseFatalityRate = document.createElement("th");
     tittleCaseFatalityRate.innerText = element.Case_Fatality_Rate;
+    tittleCaseFatalityRate.classList.add('total__deaths')
     const tittleTotalTests = document.createElement("th");
     tittleTotalTests.innerText = element.TotalTests;
+    tittleTotalTests.classList.add('total__tests')
     const tittleTotalPercentage = document.createElement("th");
     tittleTotalPercentage.innerText = element.Test_Percentage;
+    tittleTotalPercentage.classList.add('total__tests')
     const tittleTotalRecovered = document.createElement("th");
     tittleTotalRecovered.innerText = element.TotalRecovered;
+    tittleTotalRecovered.classList.add('total__tests')
     const tittleRecoveryPercentage = document.createElement("th");
     tittleRecoveryPercentage.innerText = element.Recovery_Proporation;
+    tittleRecoveryPercentage.classList.add('total__cases')
     const tittlePopulation = document.createElement("th");
     tittlePopulation.innerText = element.Population;
+    tittlePopulation.classList.add('total__cases')
+
 
     tittle.append(
       tittleNum,
@@ -262,6 +279,13 @@ function printCardsFilterByContinet(){
     );
 
     tableListCountry.append(tittle);
+
+    if(i % 2 == 0){
+      tittle.classList.add('style__elementTable--even')
+    }else{
+      tittle.classList.add('style__elementTable--odd')
+    }
+
   });
 }
 
@@ -757,9 +781,39 @@ async function populationOrder(){
 }
 
 
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display  = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function(){
+    let  fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+        console.log(display)
+
+    startTimer(fiveMinutes, display);
+};   
+ 
+
+
+
 
 renderCards(listAllCountry);
 openNavbar();
 printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
+startTimer();
+

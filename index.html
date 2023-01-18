@@ -22,8 +22,8 @@
 <body>
     <header class="header__container">
         <div class="container__logo">
-            <span></span>
-            <h3>Logo</h3>
+            <img src="./src/assets/covid.svg" alt="">
+            <h3>SARS<span>.CoDe</span>-2</h3>
         </div>
 
         <nav class="container__nav">
@@ -34,11 +34,11 @@
             </div>
 
             <ul class="nav__list">
-                <li><a id="" href="">COVID-19</a></li>
+                <li><a class="anchor__covid-19" id="style__active--anchor" href="">COVID-19</a></li>
                 <span>|</span>
-                <li><a id="" href="">VACCINE</a></li>
+                <li><a class="anchor__vaccine" href="">VACCINE</a></li>
                 <span>|</span>
-                <li><a id="" href="">NEWS</a></li>
+                <li><a class="anchor__news" href="">NEWS</a></li>
             </ul>
         </nav>
     </header>
@@ -73,8 +73,9 @@
             </article>
 
             <article class="article__container--countryIformation">
-                <div>
+                <div class="container__header--table">
                     <!-- worldData -->
+                    <div>Registration closes in <span id="time">05:00</span> minutes!</div>
                     <input type="text" class="search__country" placeholder="Search country ..." />
                 </div>
                 <select name="" id="select__continent">
@@ -86,11 +87,14 @@
                     <option value="Sorthern American">Southern American</option>
                     <option value="Oceanian">Oceanian</option>
                 </select>
-                <table class="table__container--allCountryInformation"></table>
+                <div class="container__table">
+                    <table class="table__container--allCountryInformation"></table>
+                </div>
             </article>
         </section>
 
         <section class="container__filterByContinent--desktopVersion">
+            <h3>Filter by Continent</h3>
             <button value="All">All</button>
             <button value="Asian">Asian</button>
             <button value="African">African</button>
@@ -99,6 +103,7 @@
             <button value="Sorthern American">Sorthern American</button>
             <button value="Oceanian">Asian</button>
         </section>
+
 
     </main>
 
