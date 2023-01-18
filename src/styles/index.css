@@ -10,6 +10,8 @@
     flex-direction: column-reverse;
     gap: 20px;
 
+    /* align-items: center; */
+
     /* width: 100vw; */
     /* overflow-x: none; */
     /* box-sizing: border-box; */
@@ -100,26 +102,40 @@
 }
 
 .section__container--mainInformation{
-    max-width: 80%;
+    max-width: 95%;
 }
 
 .container__filterByContinent--desktopVersion{
-    width: 20%;
-    /* height: 500px; */
-    /* border: 1px solid; */
+    width: 15%;
     display: none;
+    background-color: var(--color-grey-200);
 }
 
 .container__filterByContinent--desktopVersion > button{
-    height: 40px;
-    width: 80%;
+    height: 50px;
+    width: 90%;
     /* margin: auto; */
     cursor: pointer;
+    border-radius: 8px;
+    background-color: #083358;
+    color: var(--color-grey-900);
+    font-size: var(--font-size-4);
+}
+
+
+.container__filterByContinent--desktopVersion > button:hover{
+    background-color: #0D63A5;
 }
 
 /*TABLE*/
-.table__container--allCountryInformation{
+.container__table{
+    width: 100%;
+    height: 50vh;
     overflow-x: auto;
+}
+
+.table__container--allCountryInformation{
+    /* overflow-x: auto; */
 
 }
 
@@ -135,7 +151,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        justify-content: flex-start;
+        gap: 15px;
+        height: fit-content;
+        padding: 20px 10px;
+        border-radius: 10px;
+    }
+
+    .section__container--mainInformation{
+        max-width: 85%;
     }
 
     #select__continent{
