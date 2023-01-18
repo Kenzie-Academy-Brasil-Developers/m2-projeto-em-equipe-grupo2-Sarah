@@ -1,4 +1,4 @@
-import { openNavbar } from "./navbar.js";
+import { activeStyleNavbar, openNavbar } from "./navbar.js";
 import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
 
 const listGlobal = await getAllGlobalInformation();
@@ -209,38 +209,56 @@ function printCardsFilterByContinet(){
   let i = 0;
   listAllCountry.forEach((element) => {
     i++;
+
+
+
     const tittle = document.createElement("tr");
 
     const tittleNum = document.createElement("th");
     tittleNum.innerText = i;
+    tittleNum.classList.add('title__num')
     const tittleCountry = document.createElement("th");
     tittleCountry.innerText = element.Country;
     const tittleTotalCases = document.createElement("th");
     tittleTotalCases.innerText = element.TotalCases;
+    tittleTotalCases.classList.add('total__cases')
     const tittleNewCases = document.createElement("th");
     tittleNewCases.innerText = element.NewCases;
+    tittleNewCases.classList.add('total__newCases')
     const tittleInfectionRisk = document.createElement("th");
     tittleInfectionRisk.innerText = element.Infection_Risk;
+    tittleInfectionRisk.classList.add('total__cases')
     const tittleSeriusCritical = document.createElement("th");
     tittleSeriusCritical.innerText = element.Serious_Critical;
+    tittleSeriusCritical.classList.add('total__critical')
     const tittleActivesCases = document.createElement("th");
     tittleActivesCases.innerText = element.ActiveCases;
+    tittleActivesCases.classList.add('total__activeCases')
     const tittleTotalDeaths = document.createElement("th");
     tittleTotalDeaths.innerText = element.TotalDeaths;
+    tittleTotalDeaths.classList.add('total__deaths')
     const tittleNewDeaths = document.createElement("th");
     tittleNewDeaths.innerText = element.NewDeaths;
+    tittleNewDeaths.classList.add('total__deaths')
     const tittleCaseFatalityRate = document.createElement("th");
     tittleCaseFatalityRate.innerText = element.Case_Fatality_Rate;
+    tittleCaseFatalityRate.classList.add('total__deaths')
     const tittleTotalTests = document.createElement("th");
     tittleTotalTests.innerText = element.TotalTests;
+    tittleTotalTests.classList.add('total__tests')
     const tittleTotalPercentage = document.createElement("th");
     tittleTotalPercentage.innerText = element.Test_Percentage;
+    tittleTotalPercentage.classList.add('total__tests')
     const tittleTotalRecovered = document.createElement("th");
     tittleTotalRecovered.innerText = element.TotalRecovered;
+    tittleTotalRecovered.classList.add('total__tests')
     const tittleRecoveryPercentage = document.createElement("th");
     tittleRecoveryPercentage.innerText = element.Recovery_Proporation;
+    tittleRecoveryPercentage.classList.add('total__cases')
     const tittlePopulation = document.createElement("th");
     tittlePopulation.innerText = element.Population;
+    tittlePopulation.classList.add('total__cases')
+
 
     tittle.append(
       tittleNum,
@@ -261,6 +279,13 @@ function printCardsFilterByContinet(){
     );
 
     tableListCountry.append(tittle);
+
+    if(i % 2 == 0){
+      tittle.classList.add('style__elementTable--even')
+    }else{
+      tittle.classList.add('style__elementTable--odd')
+    }
+
   });
 }
 
@@ -787,6 +812,7 @@ window.onload = function(){
 
 renderCards(listAllCountry);
 openNavbar();
+activeStyleNavbar()
 printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
