@@ -22,20 +22,29 @@
     </header>
 
     <main>
-        <div main__container>
-            <div main__header>
-                <select name="phase" id="phase">
-                    <option value="">Select Phase</option>
-                </select>
+        <div class="main__container">
+                <div class="main__header">
+                    <select name="phase" id="phase">
+                    <option value="" disabled>Select Phases</option>
+                    <option value="All">All</option>
+                    <option value="Phase-I">Phase-I</option>
+                    <option value="Phase-II">Phase-II</option>
+                    <option value="Phase-III">Phase-III</option>
+                    <option value="Phase-IV">Phase-IV</option>
+                    <option value="FDA-Aproved">FDA-Aproved</option>
+                    </select>
+                </div>
 
                 <div class="desktop__container">
                     <div class="desktop__container--aside">
-                        <buttton class="all-vaccine__button">All</buttton>
-                        <buttton class="phaseI-vaccine_button">Phase-I</buttton>
-                        <buttton class="phaseII-vaccine_button">Phase-II</buttton>
-                        <buttton class="phaseIII-vaccine_button">Phase-III</buttton>
-                        <buttton class="phaseIV-vaccine_button">Phase-IV</buttton>
-                        <buttton class="aproved-vaccine_button">FDA-Aproved</buttton>
+                        <h2>Categories</h2>
+                        
+                        <button class="all-vaccine__button">All</button>
+                        <button class="phaseI-vaccine_button">Phase-I</button>
+                        <button class="phaseII-vaccine_button">Phase-II</button>
+                        <button class="phaseIII-vaccine_button">Phase-III</button>
+                        <button class="phaseIV-vaccine_button">Phase-IV</button>
+                        <button class="aproved-vaccine_button">FDA-Aproved</button>
                     </div>
 
                     <div class="desktop_container--main">
@@ -43,11 +52,12 @@
                         
                         <ul id="vaccines__list"></ul>
                     </div>
-                </div>
-            </div>
-
+                </div>          
         </div>
     </main>
+
+    <script type="module" src="../scripts/vaccines.js"></script>
     
+    <script type="module" src="../scripts/vaccines.js"></script>
 </body>
 </html>

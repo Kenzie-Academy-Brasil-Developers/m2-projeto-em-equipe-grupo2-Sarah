@@ -33,7 +33,9 @@
     --font-weigth-Bold: 700;
 }
 
+
 body{
     background: linear-gradient(90deg,  var(--background-1), var(--background-2));
     color: var(--color-grey-900);
+    font-family: 'Roboto', sans-serif;
 }
