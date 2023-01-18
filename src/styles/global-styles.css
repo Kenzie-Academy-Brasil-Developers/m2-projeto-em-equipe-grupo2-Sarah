@@ -19,6 +19,9 @@
     --brand-5: #FB9C4F;
     --background-1: #14264B;
     --background-2: #212528;
+    --card-background: #083358;
+    --card-backgroud-hover: #0D63A5;
+    --card-container: #161726;
     --font-size-0: 4rem;
     --font-size-1: 3rem;
     --font-size-2: 2rem;
@@ -38,4 +41,19 @@ body{
     background: linear-gradient(90deg,  var(--background-1), var(--background-2));
     color: var(--color-grey-900);
     font-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 30px;
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--brand-0);
+    border-radius: 30px;
 }

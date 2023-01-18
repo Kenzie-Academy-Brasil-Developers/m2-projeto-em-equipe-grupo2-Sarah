@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SARS.CoDE-2</title>
 
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,31 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/global-styles.css">
     <link rel="stylesheet" href="../styles/vaccines.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/modal-vaccine.css">
 </head>
 <body>
-    <header>
+    <header class="header__container">
+        <div class="container__logo">
+            <img src="../assets/covid.svg" alt="">
+            <h3>SARS<span>.CoDe</span>-2</h3>
+        </div>
 
+        <nav class="container__nav">
+            <div class="mobile__menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <ul class="nav__list">
+                <li><a class="anchor__covid-19" href="">COVID-19</a></li>
+                <span>|</span>
+                <li><a class="anchor__vaccine" id="style__active--anchor" href="">VACCINE</a></li>
+                <span>|</span>
+                <li><a class="anchor__news" href="">NEWS</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>

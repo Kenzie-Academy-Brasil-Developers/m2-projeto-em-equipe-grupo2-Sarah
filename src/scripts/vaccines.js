@@ -1,5 +1,7 @@
 import { getAllApprovedVaccines, getAllVaccines, getAllVaccinesI, getAllVaccinesII, getAllVaccinesIII, getAllVaccinesIV, getSpecifVaccine } from "./requests.js"
 
+import { openNavbar } from './navbar.js'
+
 const listVaccinesPhaseAll = await getAllVaccines()
 const listVaccinesPhaseI = await getAllVaccinesI()
 const listVaccinesPhaseII = await getAllVaccinesII()
@@ -59,7 +61,7 @@ function createVaccineCards (element) {
     descriptionDiv.append(description, descriptionName);
 
     const FDAApprovedDiv = document.createElement('div');
-    FDAApprovedDiv.classList.add('vaccine-nextSteps__container');
+    FDAApprovedDiv.classList.add('vaccine-FDAApproved__container');
 
     const FDAApproved = document.createElement('h3');
     FDAApproved.innerText = 'FDA aproved:';
@@ -97,17 +99,23 @@ function phaseSelect(){
     selectTag.addEventListener("change", () => {
         showCase.innerHTML = ""
         if(selectTag.value == "All"){
-            renderAllVaccineCards(listVaccinesPhaseAll)
+            renderAllVaccineCards(listVaccinesPhaseAll);
+            showMoreVaccineInformation ();;
         }else if(selectTag.value == "Phase-I"){
-            renderAllVaccineCards(listVaccinesPhaseI)
+            renderAllVaccineCards(listVaccinesPhaseI);
+            showMoreVaccineInformation ();
         }else if(selectTag.value == "Phase-II"){
-            renderAllVaccineCards(listVaccinesPhaseII)
+            renderAllVaccineCards(listVaccinesPhaseII);
+            showMoreVaccineInformation ();
         }else if(selectTag.value == "Phase-III"){
-            renderAllVaccineCards(listVaccinesPhaseIII)
+            renderAllVaccineCards(listVaccinesPhaseIII);
+            showMoreVaccineInformation ();
         }else if(selectTag.value == "Phase-IV"){
-            renderAllVaccineCards(listVaccinesPhaseIV)
+            renderAllVaccineCards(listVaccinesPhaseIV);
+            showMoreVaccineInformation ();
         }else if(selectTag.value == "FDA-Aproved"){
-            renderAllVaccineCards(listVaccinesApproveds)
+            renderAllVaccineCards(listVaccinesApproveds);
+            showMoreVaccineInformation ();
         }
     })
 }
@@ -126,26 +134,32 @@ function phaseButton(){
     buttonAllVaccine.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesPhaseAll)
+        showMoreVaccineInformation ();
     })
     buttonPhaseI.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesPhaseI)
+        showMoreVaccineInformation ();
     })
     buttonPhaseII.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesPhaseII)
+        showMoreVaccineInformation ();
     })
     buttonPhaseIII.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesPhaseIII)
+        showMoreVaccineInformation ();
     })
     buttonPhaseIV.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesPhaseIV)
+        showMoreVaccineInformation ();
     })
     buttonAproved.addEventListener("click", () =>{
         showCase.innerHTML = ""
         renderAllVaccineCards(listVaccinesApproveds)
+        showMoreVaccineInformation ();
     })
 }
 
@@ -174,6 +188,28 @@ function showMoreVaccineInformation () {
 
 function vaccineModal(element) {
     const modal = document.createElement("dialog");
+    modal.classList.add('vaccine__modal');
+
+    const vaccineImg = document.createElement('img');
+    if (element.category === "Non-replicating viral vector") {
+        vaccineImg.src = "../assets/non-replicate-viral.jpg";
+    } else if (element.category === 'Protein subunit') {
+        vaccineImg.src = "../assets/protein-subunit.jpg";
+    } else if (element.category === 'RNA-based vaccine') {
+        vaccineImg.src = "../assets/Rna-based.jpg";
+    } else if (element.category === 'Replicating viral vector') {
+        vaccineImg.src = "../assets/replicating-viral.jpg";
+    } else if (element.category === 'DNA-based') {
+        vaccineImg.src = "../assets/Dna-based.jpg";
+    } else if (element.category === 'Inactivated virus') {
+        vaccineImg.src = "../assets/inactivated-virus.jpg";
+    } else if (element.category === 'Live attenuated virus') {
+        vaccineImg.src = "../assets/live-attenuated-virus.jpg";
+    } else if (element.category === 'Virus-like particle') {
+        vaccineImg.src = "../assets/virus-like-particle.jpg";
+    } else {
+        vaccineImg.src = "../assets/replicating-bacterial.jpg";
+    }
 
     const closeButton = document.createElement('button');
     closeButton.classList.add('close__button');
@@ -236,7 +272,7 @@ function vaccineModal(element) {
 
     nextStepsDiv.append(nextSteps, nextStepsName);
 
-    modal.append(closeButton, companyDiv, categoryDiv, stageDiv, descriptionDiv, nextStepsDiv);
+    modal.append(closeButton, vaccineImg, companyDiv, categoryDiv, stageDiv, descriptionDiv, nextStepsDiv);
 
     return modal;
 }
@@ -253,3 +289,4 @@ function closeModal () {
 phaseButton()
 phaseSelect()
 showMoreVaccineInformation ()
+openNavbar();
