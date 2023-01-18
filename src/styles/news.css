@@ -4,6 +4,24 @@ body{
     background: linear-gradient(90deg,  var(--background-1), var(--background-2));
     color: var(--color-grey-1000);
     font-family: 'Roboto', sans-serif;
+    line-height: var(--line-height-default);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__container > h2{
+    font-size: var(--font-size-2);
+    padding: 2rem;
 }
 
 #news__list{
@@ -11,41 +29,95 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    
+    margin: 1rem;
 }
 
-#link__news{
+.link__news{
     cursor:pointer;
-}
-
-.news__item{
+    width: 100%;
     display: flex;
     color: inherit;
-    text-decoration: none;
+    text-decoration: none;    
+}
+
+.item__list{
+    border-bottom: 1px solid var(--color-grey-900);
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+
+.images__news, .images__font{
+    height: 65px;
+    width: 65px;
 }
 
 .images__news{
-    height: 65px;
-    width: 65px;
+    display: none;
+}
+
+#news__title{
+    font-weight: 600;
+}
+
+#news__content{
+    font-weight: 100;
+}
+
+.images__font{
+    background: linear-gradient(to right, black, white);
 }
 
 .div__news{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 0 1rem 0 1rem;       
+    padding: 0 1rem 0 1rem;   
+}
+
+#news__buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+#recents__button, #older__button{
+    height: 2rem;
+    width: 10rem;
+    background-color: var(--brand-0);
+    background: linear-gradient(270deg,#363795,#005c97);
+    border:none;
+    border-radius: 4px;
+    color: var(--color-grey-500);
 }
 
 
 @media(min-width:991px){
     
-    .images__news{
+    #news__list{
+        margin: 4rem 8rem;
+    }
+
+    .images__news, .images__font{
         height: 130px;
         width: 130px;
     }
+    .images__font{
+        background: linear-gradient(to right,white, black);
+    }
+
+    .images__news{
+        display: flex;
+        background: linear-gradient(to left,white, black);
+    }    
 
     .div__news{
         width: 40rem;
     }
+    
+    #recents__button, #older__button{
+        height: 4rem;
+        width: 20rem;
+    
     
 }

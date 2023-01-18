@@ -16,8 +16,6 @@ async function renderNews(){
     })
 }
 
-
-
 function createCard(element){
     
     const container = document.createElement('li')
@@ -28,12 +26,13 @@ function createCard(element){
     const content = document.createElement('p')
     const imgNews = document.createElement('img')
 
-    link.classList.add('news__item')
-    imgFont.classList.add('images__news')
+    container.classList.add('item__list')
+    link.classList.add('link__news')
     div.classList.add('div__news')
+    imgFont.classList.add('images__font')
     imgNews.classList.add('images__news')
     
-    link.id = 'link__news'
+    
     link.href = element.link
 
     if(element.reference == 'cbs-news'){
