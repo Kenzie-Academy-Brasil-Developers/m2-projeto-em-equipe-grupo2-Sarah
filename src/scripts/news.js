@@ -1,15 +1,63 @@
-import {newsRequest} from './requests.js'
+import {newsPageOneRequest, newsPageTwoRequest, newsPageThreeRequest, newsPageFourRequest, newsPageFiveRequest, newsPageSixRequest, newsPageSevenRequest, newsPageEightRequest,} from './requests.js'
 
 async function renderNews(){
     const newsList = document.querySelector('#news__list')
 
-    const news = await newsRequest()
-
-    console.log(news)
+    const newsPageOne = await newsPageOneRequest()
+    const newsPageTwo = await newsPageTwoRequest()
+    const newsPageThree = await newsPageThreeRequest()
+    const newsPageFour = await newsPageFourRequest()
+    const newsPageFive = await newsPageFiveRequest()
+    const newsPageSix = await newsPageSixRequest()
+    const newsPageSeven = await newsPageSevenRequest()
+    const newsPageEight = await newsPageEightRequest()
+    
 
     newsList.innerHTML = ''
 
-    news.news.forEach(element => {
+    newsPageOne.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageTwo.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageThree.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageFour.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageFive.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageSix.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageSeven.news.forEach(element => {
+        const card = createCard(element) 
+
+        newsList.append(card)
+    })
+
+    newsPageEight.news.forEach(element => {
         const card = createCard(element) 
 
         newsList.append(card)
@@ -20,16 +68,24 @@ function createCard(element){
     
     const container = document.createElement('li')
     const link = document.createElement('a')
+    const divImgFont = document.createElement('div')
+    const spanImgFont = document.createElement('span')
     const imgFont = document.createElement('img')
     const div = document.createElement('div')
     const title = document.createElement('h2')
     const content = document.createElement('p')
+    const divImgNews = document.createElement('div')
+    const spanImgNews = document.createElement('span')
     const imgNews = document.createElement('img')
 
     container.classList.add('item__list')
     link.classList.add('link__news')
-    div.classList.add('div__news')
+    divImgFont.classList.add('div__imgFont')
+    spanImgFont.classList.add('span__imgFont')
     imgFont.classList.add('images__font')
+    div.classList.add('div__news')
+    divImgNews.classList.add('div__imgNews')
+    spanImgNews.classList.add('span__imgNews')
     imgNews.classList.add('images__news')
     
     
@@ -79,10 +135,51 @@ function createCard(element){
     imgNews.alt = "Imagem da notícia"
 
     
+
+    divImgFont.append(spanImgFont,imgFont)
+    divImgNews.append(spanImgNews,imgNews)
     div.append(title,content)
-    link.append(imgFont,div,imgNews)
+    link.append(divImgFont,div,divImgNews)
     container.append(link)
     
     return container
 }
 renderNews()
+
+function buttonsNews(){
+    const list = document.querySelector('#news__list')
+    const recents = document.querySelector('#recents__button')
+    const olders = document.querySelector('#older__button')
+
+    recents.addEventListener('click', () => {
+        list.innerHTML = ''
+        
+    })
+}
+
+// function loadItems(){
+
+//     const allLi = document.querySelectorAll('li')
+//     console.log(allLi)
+
+//     const options = {
+//         root: null,
+//         rootMargin: "0px",
+//         threshold: 0.5,
+//     }
+
+//     const observer = new IntersectionObserver((entries) =>
+//     entries.forEach((entry) => {
+//         if(entry.isIntersecting){
+//             entry.target.classList.add('show');
+//         }
+//     }), options);
+
+    
+    
+    
+
+//     allLi.forEach((li) => observer.observe(li));
+
+// }
+// loadItems()

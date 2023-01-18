@@ -18,19 +18,41 @@
 </head>
 <body>
 
-   <header></header>
+   <header>
+    <div class="container__logo">
+        <img src="./src/assets/covid.svg" alt="">
+        <h3>SARS<span>.CoDe</span>-2</h3>
+    </div>
+
+    <nav class="container__nav">
+        <div class="mobile__menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <ul class="nav__list">
+            <li><a id="" href="">COVID-19</a></li>
+            <span>|</span>
+            <li><a id="" href="">VACCINE</a></li>
+            <span>|</span>
+            <li><a id="" href="">NEWS</a></li>
+        </ul>
+    </nav>
+   </header>
 
    <main>
     <div class="main__container">
         <h2>Health News</h2>
 
         <ul id="news__list"></ul>
-
+        <div class="observador"></div>
     </div>
     <div id="news__buttons">
-        <button id="recents__button" type="submit">RECENT NEWS</button>
-        <button id="older__button" type="submit">OLDER NEWS</button>
+        <button id="recents__button">RECENT NEWS</button>
+        <button id="older__button">OLDER NEWS</button>
     </div>
+    
    </main>
     
    <script type="module" src="../scripts/news.js"></script>
