@@ -1,3 +1,4 @@
+import { removeAddLoading } from "./loading.js";
 import { openNavbar } from "./navbar.js";
 import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
 
@@ -816,4 +817,4 @@ printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
 startTimer();
-
+removeAddLoading()
