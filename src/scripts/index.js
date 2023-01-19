@@ -111,6 +111,7 @@ function printCardsFilterByContinet(){
   );
 
   const tittle = document.createElement("tr");
+  tittle.classList.add('header__table')
 
   const tittleNum = document.createElement("th");
   tittleNum.innerText = "NUM";
@@ -208,11 +209,13 @@ function printCardsFilterByContinet(){
 
   let i = 0;
   listAllCountry.forEach((element) => {
+    
     i++;
 
 
 
     const tittle = document.createElement("tr");
+    tittle.classList.add('table__line')
 
     const tittleNum = document.createElement("th");
     tittleNum.innerText = i;
@@ -800,10 +803,11 @@ async function populationOrder(){
 
 window.onload = function(){
     let  fiveMinutes = 60 * 5,
-        display = document.querySelector('#time');
-        console.log(display)
+        select = document.querySelector('#time');
+        select.innerHTML = display
 
     startTimer(fiveMinutes, display);
+    
 };   
  
 
@@ -815,5 +819,5 @@ openNavbar();
 printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
-startTimer();
+// startTimer();
 removeAddLoading()
