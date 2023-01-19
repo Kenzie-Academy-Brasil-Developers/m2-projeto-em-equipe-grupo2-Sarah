@@ -1,4 +1,6 @@
+import { openNavbar } from './navbar.js'
 import {newsPageOneRequest, newsPageTwoRequest, newsPageThreeRequest, newsPageFourRequest, newsPageFiveRequest, newsPageSixRequest, newsPageSevenRequest, newsPageEightRequest,} from './requests.js'
+
 
 async function renderNews(){
     const newsList = document.querySelector('#news__list')
@@ -75,8 +77,8 @@ function createCard(element){
     const title = document.createElement('h2')
     const content = document.createElement('p')
     const divImgNews = document.createElement('div')
-    const spanImgNews = document.createElement('span')
     const imgNews = document.createElement('img')
+    const date = document.createElement('h4')
 
     container.classList.add('item__list')
     link.classList.add('link__news')
@@ -85,9 +87,8 @@ function createCard(element){
     imgFont.classList.add('images__font')
     div.classList.add('div__news')
     divImgNews.classList.add('div__imgNews')
-    spanImgNews.classList.add('span__imgNews')
     imgNews.classList.add('images__news')
-    
+    date.classList.add('date__news')
     
     link.href = element.link
 
@@ -135,51 +136,68 @@ function createCard(element){
     imgNews.alt = "Imagem da notícia"
 
     
+    let pubDate = new Date(element.pubDate)
+    let pubHour = pubDate.getHours()
+    let pubMinute = pubDate.getMinutes()
+    let pubDay = pubDate.getDate()
+    let pubMonth = pubDate.getMonth()
+    let pubYear = pubDate.getFullYear()
 
+
+    let currentDate = new Date()
+    let currentHour = currentDate.getHours()
+    let currentMinute = currentDate.getMinutes()
+    let currentDay = currentDate.getDate()
+    let currentMonth = currentDate.getMonth()
+    let currentYear = currentDate.getFullYear()
+
+
+    let diference = 0
+    
+    if(currentDay == pubDay && currentMonth == pubMonth && currentYear == pubYear){
+        if(currentHour == pubHour){
+            diference = currentMinute - pubMinute
+            date.innerHTML = `${diference} minutes ago`
+            
+        } else if(currentHour != pubHour){
+            diference = currentHour - pubHour
+            date.innerHTML = `${diference} hours ago`
+        } 
+    } else if(currentYear == pubYear && currentMonth == pubMonth && currentDay != pubDay){
+        diference = currentDay - pubDay
+        date.innerHTML = `${diference} days ago`
+    }    
+    else if(currentYear == pubYear && currentMonth != pubMonth){
+        diference = currentMonth - pubMonth
+        date.innerHTML = `${diference} months ago`
+
+    } else if(currentYear != pubYear){
+        diference = currentYear - pubYear
+        date.innerHTML = `${diference} years ago`
+    }
+   
+    
+    divImgNews.append(imgNews,date)
     divImgFont.append(spanImgFont,imgFont)
-    divImgNews.append(spanImgNews,imgNews)
     div.append(title,content)
     link.append(divImgFont,div,divImgNews)
     container.append(link)
     
     return container
 }
-renderNews()
 
-function buttonsNews(){
-    const list = document.querySelector('#news__list')
-    const recents = document.querySelector('#recents__button')
-    const olders = document.querySelector('#older__button')
 
-    recents.addEventListener('click', () => {
-        list.innerHTML = ''
-        
-    })
+async function showAndHideLoader () {
+    const newsList = await renderNews()
+    const loader = document.querySelector('#loader-add-remove');
+    if (newsList == []){
+        loader.classList.add('loader');
+    } else {
+        loader.classList.remove('loader');
+    }
 }
 
-// function loadItems(){
 
-//     const allLi = document.querySelectorAll('li')
-//     console.log(allLi)
-
-//     const options = {
-//         root: null,
-//         rootMargin: "0px",
-//         threshold: 0.5,
-//     }
-
-//     const observer = new IntersectionObserver((entries) =>
-//     entries.forEach((entry) => {
-//         if(entry.isIntersecting){
-//             entry.target.classList.add('show');
-//         }
-//     }), options);
-
-    
-    
-    
-
-//     allLi.forEach((li) => observer.observe(li));
-
-// }
-// loadItems()
+showAndHideLoader()
+renderNews()
+openNavbar()

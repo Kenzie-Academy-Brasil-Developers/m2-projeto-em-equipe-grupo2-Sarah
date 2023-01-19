@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notícias</title>
 
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/global-styles.css">
     <link rel="stylesheet" href="../styles/news.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
 </head>
 <body>
 
-   <header>
+   <header class="header__container">
     <div class="container__logo">
-        <img src="./src/assets/covid.svg" alt="">
+        <img src="../assets/covid.svg" alt="">
         <h3>SARS<span>.CoDe</span>-2</h3>
     </div>
 
@@ -32,11 +33,11 @@
         </div>
 
         <ul class="nav__list">
-            <li><a id="" href="">COVID-19</a></li>
+            <li><a id="" href="../../index.html">COVID-19</a></li>
             <span>|</span>
-            <li><a id="" href="">VACCINE</a></li>
+            <li><a id="" href="../pages/dashboard-vaccine.html">VACCINE</a></li>
             <span>|</span>
-            <li><a id="" href="">NEWS</a></li>
+            <li><a id="style__active--anchor" href="../pages/dashboard-news.html">NEWS</a></li>
         </ul>
     </nav>
    </header>
@@ -44,13 +45,10 @@
    <main>
     <div class="main__container">
         <h2>Health News</h2>
+        <div class="loader" id="loader-add-remove"></div>
 
         <ul id="news__list"></ul>
-        <div class="observador"></div>
-    </div>
-    <div id="news__buttons">
-        <button id="recents__button">RECENT NEWS</button>
-        <button id="older__button">OLDER NEWS</button>
+        
     </div>
     
    </main>
