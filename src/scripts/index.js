@@ -804,7 +804,7 @@ window.onload = function(){
     let  fiveMinutes = 60 * 5,
         select = document.querySelector('#time');
         select.innerHTML = display
-        console.log(display)
+        console.log(select)
 
     startTimer(fiveMinutes, display);
     
