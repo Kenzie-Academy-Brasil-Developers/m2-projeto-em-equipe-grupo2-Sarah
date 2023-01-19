@@ -320,25 +320,6 @@ function closeModal () {
     })
 }
 
-function redirectToCovidPage () {
-    const covidButton = document.querySelector('.anchor__covid-19');
-    
-    covidButton.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        window.location.replace("/")
-    })
-}
-
-function redirectToNewsPage () {
-    const newsButton = document.querySelector('.anchor__news');
-    
-    newsButton.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        window.location.replace("/src/pages/dashboard-news.html");
-    })
-}
 
 function showAndHideLoader () {
     const vaccinesList = document.querySelector('#vaccines__list');
@@ -356,6 +337,4 @@ phaseButton()
 phaseSelect()
 showMoreVaccineInformation ()
 openNavbar();
-redirectToCovidPage ();
-redirectToNewsPage ();
 showAndHideLoader ();
