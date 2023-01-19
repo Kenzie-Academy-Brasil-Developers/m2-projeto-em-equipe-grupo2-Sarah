@@ -12,69 +12,104 @@ const listVaccinesApproveds = await getAllApprovedVaccines()
 
 function createVaccineCards (element) {
     const li = document.createElement('li');
+
+    const tagLink = document.createElement('a');
+    tagLink.classList.add('taglink__vaccine')
+    tagLink.dataset.category = element.trimedCategory;
+    tagLink.dataset.name = element.trimedName;
     
     const companyDiv = document.createElement('div');
     companyDiv.classList.add('vaccine-company__container');
+    companyDiv.dataset.category = element.trimedCategory;
+    companyDiv.dataset.name = element.trimedName;
 
     const company = document.createElement('h3');
     company.innerText = 'Company:';
+    company.dataset.category = element.trimedCategory;
+    company.dataset.name = element.trimedName;
     
     const companyName = document.createElement('p');
     companyName.innerText = element.developerResearcher;
     companyName.dataset.category = element.trimedCategory;
     companyName.dataset.name = element.trimedName;
-
+    
     companyDiv.append(company, companyName);
 
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('vaccine-category__container');
+    categoryDiv.dataset.category = element.trimedCategory;
+    categoryDiv.dataset.name = element.trimedName;
 
     const category = document.createElement('h3');
     category.innerText = 'Category:';
+    category.dataset.category = element.trimedCategory;
+    category.dataset.name = element.trimedName;
 
     const categoryName = document.createElement('p');
     categoryName.innerText = element.category;
+    categoryName.dataset.category = element.trimedCategory;
+    categoryName.dataset.name = element.trimedName;
 
     categoryDiv.append(category, categoryName);
 
     const phaseDiv = document.createElement('div');
     phaseDiv.classList.add('vaccine-phase__container');
+    phaseDiv.dataset.category = element.trimedCategory;
+    phaseDiv.dataset.name = element.trimedName;
 
     const phase = document.createElement('h3');
     phase.innerText = 'Phase:';
+    phase.dataset.category = element.trimedCategory;
+    phase.dataset.name = element.trimedName;
 
     const phaseName = document.createElement('p');
     phaseName.innerText = element.phase;
+    phaseName.dataset.category = element.trimedCategory;
+    phaseName.dataset.name = element.trimedName;
 
     phaseDiv.append(phase, phaseName);
 
     const descriptionDiv = document.createElement('div');
     descriptionDiv.classList.add('vaccine-description__container');
+    descriptionDiv.dataset.category = element.trimedCategory;
+    descriptionDiv.dataset.name = element.trimedName;
 
     const description = document.createElement('h3');
     description.innerText = 'Description:';
+    description.dataset.category = element.trimedCategory;
+    description.dataset.name = element.trimedName;
 
     const descriptionName = document.createElement('p');
     descriptionName.innerText = element.description;
+    descriptionName.dataset.category = element.trimedCategory;
+    descriptionName.dataset.name = element.trimedName;
 
     descriptionDiv.append(description, descriptionName);
 
     const FDAApprovedDiv = document.createElement('div');
     FDAApprovedDiv.classList.add('vaccine-FDAApproved__container');
+    FDAApprovedDiv.dataset.category = element.trimedCategory;
+    FDAApprovedDiv.dataset.name = element.trimedName;
 
     const FDAApproved = document.createElement('h3');
     FDAApproved.innerText = 'FDA aproved:';
+    FDAApproved.dataset.category = element.trimedCategory;
+    FDAApproved.dataset.name = element.trimedName;
 
     const FDAApprovedName = document.createElement('p');
-    if (element.FDAApproved === 'undefined') {
-        FDAApprovedName.innerText = 'not approved yet';
+    FDAApprovedName.dataset.category = element.trimedCategory;
+    FDAApprovedName.dataset.name = element.trimedName;
+    if (element.phase === 'Authorized') {
+        FDAApprovedName.innerText = 'Authorized';
     } else {
-       FDAApprovedName.innerText = element.FDAApproved; 
+       FDAApprovedName.innerText = 'Not approved yet'; 
     }
     
     FDAApprovedDiv.append(FDAApproved, FDAApprovedName);
 
-    li.append(companyDiv, categoryDiv, phaseDiv, descriptionDiv, FDAApprovedDiv);
+    tagLink.append(companyDiv, categoryDiv, phaseDiv, descriptionDiv, FDAApprovedDiv);
+
+    li.append(tagLink);
 
     return li;
 }
@@ -163,23 +198,23 @@ function phaseButton(){
 }
 
 function showMoreVaccineInformation () {
-    const allVaccineTitle = document.querySelectorAll('.vaccine-company__container > p');
+    const allVaccineCards = document.querySelectorAll('.taglink__vaccine');
     const body = document.querySelector('body');
 
-    allVaccineTitle.forEach(vaccine => {
+    allVaccineCards.forEach(vaccine => {
         vaccine.addEventListener('click', async (e) => {
-        let company = e.target.dataset.name;
-        let category = e.target.dataset.category;
+            let company = e.target.dataset.name;
+            let category = e.target.dataset.category;
 
-        let vaccineFound = await getSpecifVaccine(category, company);
+            let vaccineFound = await getSpecifVaccine(category, company);
 
-        let modal = vaccineModal(vaccineFound[0]);
+            let modal = vaccineModal(vaccineFound[0]);
 
-        body.append(modal);
+            body.append(modal);
 
-        modal.showModal();
+            modal.showModal();
 
-        closeModal();
+            closeModal();
 
         })
     })

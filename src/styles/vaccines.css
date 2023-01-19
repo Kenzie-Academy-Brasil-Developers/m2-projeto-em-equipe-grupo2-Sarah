@@ -77,53 +77,59 @@ main .main__container .desktop__container .desktop_container--main #vaccines__li
     gap: 1rem;
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li {
+main .main__container .desktop__container .desktop_container--main #vaccines__list li  {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1rem;
     box-sizing: border-box;
     background-color: var(--card-background);
     border-radius: 5px;
+    align-items: center;
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li > div {
+main .main__container .desktop__container .desktop_container--main #vaccines__list li a {
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a:hover {
+    background-color: var(--card-backgroud-hover);
+    transition: .2s;
+}
+
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    outline: none;
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li > div h3 {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div h3 {
     font-size: var(--font-size-4);
     font-weight: var(--font-weigth-Bold);
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li > div p {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div p {
     line-height: var(--line-height-default);
     font-size: var(--font-size-5);
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-company__container > p {
-    cursor: pointer;
-}
-
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-company__container > p:hover {
-    text-decoration: underline;
-}
-
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-category__container > h3 {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-category__container > h3 {
     color: var(--brand-1);
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-phase__container > h3 {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-phase__container > h3 {
     color: var(--brand-2);
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-description__container > h3 {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-description__container > h3 {
     color: var(--brand-3);
 }
 
-main .main__container .desktop__container .desktop_container--main #vaccines__list li .vaccine-FDAApproved__container > h3 {
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-FDAApproved__container > h3 {
     color: var(--brand-5);
 }
 
@@ -231,7 +237,7 @@ main .main__container .desktop__container .desktop_container--main #vaccines__li
         gap: 1rem;
     }
     
-    main .main__container .desktop__container .desktop_container--main #vaccines__list li {
+    main .main__container .desktop__container .desktop_container--main #vaccines__list a {
         display: flex;
         flex-direction: row;
         gap: 0.75rem;
@@ -243,12 +249,8 @@ main .main__container .desktop__container .desktop_container--main #vaccines__li
         border-radius: 5px;
     }
 
-    main .main__container .desktop__container .desktop_container--main #vaccines__list li:hover {
-        background-color: var(--card-backgroud-hover);
-        transition: .2s;
-    }
     
-    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div {
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -256,12 +258,12 @@ main .main__container .desktop__container .desktop_container--main #vaccines__li
         height: 100%;
     }
     
-    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div h3 {
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div h3 {
         font-size: var(--font-size-4);
         font-weight: var(--font-weigth-Bold);
     }
     
-    main .main__container .desktop__container .desktop_container--main #vaccines__list li > div p {
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div p {
         line-height: var(--line-height-default);
         font-size: var(--font-size-5);
     }
