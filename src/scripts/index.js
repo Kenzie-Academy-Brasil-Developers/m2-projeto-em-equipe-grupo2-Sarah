@@ -208,6 +208,7 @@ function printCardsFilterByContinet(){
 
   let i = 0;
   listAllCountry.forEach((element) => {
+    
     i++;
     const tittle = document.createElement("tr");
 
@@ -775,10 +776,12 @@ async function populationOrder(){
 
 window.onload = function(){
     let  fiveMinutes = 60 * 5,
-        display = document.querySelector('#time');
+        select = document.querySelector('#time');
+        select.innerHTML = display
         console.log(display)
 
     startTimer(fiveMinutes, display);
+    
 };   
  
 
