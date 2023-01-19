@@ -112,6 +112,7 @@ function printCardsFilterByContinet(){
   );
 
   const tittle = document.createElement("tr");
+  tittle.classList.add('header__table')
 
   const tittleNum = document.createElement("th");
   tittleNum.innerText = "NUM";
@@ -215,6 +216,7 @@ function printCardsFilterByContinet(){
 
 
     const tittle = document.createElement("tr");
+    tittle.classList.add('table__line')
 
     const tittleNum = document.createElement("th");
     tittleNum.innerText = i;
