@@ -1,0 +1,273 @@
+body {
+    overflow-x: hidden;
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+main .main__container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+main .main__container .main__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+main .main__container .main__header select {
+    height: 2rem;
+    text-align: center;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-medium);
+    appearance: none;
+    border: none;
+    border-radius: 8px;
+    color: var(--color-grey-1000);
+    font-weight: var(--font-weigth-Bold);
+    background-color: var(--card-backgroud-hover);
+    outline: none;
+    background-image: url('../assets/arrow-select.svg');
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-position: 95%;
+}
+
+main .main__container .main__header select option {
+    background-color: var(--color-grey-900);
+    color: var(--background-2);
+}
+
+main .main__container .desktop__container .desktop__container--aside {
+    display: none;
+}
+
+main .main__container .desktop__container .desktop_container--main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--card-container);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 15px;
+    position: relative;
+    min-height: 40rem;
+}
+
+main .main__container .desktop__container .desktop_container--main > h2 {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weigth-Bold);
+    text-align: center;
+    line-height: var(--line-height-default);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list {
+    max-height: 42rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li  {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-sizing: border-box;
+    background-color: var(--card-background);
+    border-radius: 5px;
+    align-items: center;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list li a {
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a:hover {
+    background-color: var(--card-backgroud-hover);
+    transition: .2s;
+}
+
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    outline: none;
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div h3 {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weigth-Bold);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a  div p {
+    line-height: var(--line-height-default);
+    font-size: var(--font-size-5);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-category__container > h3 {
+    color: var(--brand-1);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-phase__container > h3 {
+    color: var(--brand-2);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-description__container > h3 {
+    color: var(--brand-3);
+}
+
+main .main__container .desktop__container .desktop_container--main #vaccines__list a .vaccine-FDAApproved__container > h3 {
+    color: var(--brand-5);
+}
+
+.loader {
+    margin: auto;
+    border: 15px solid rgba(227, 225, 225, 0.441);
+    border-radius: 50%;
+    border-top: 15px solid var(--card-backgroud-hover);
+    width: 3rem;
+    height: 3rem;
+    animation: spinner 2s linear infinite;
+    position: absolute;
+    top: 15rem;
+    align-self: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+@media(min-width: 1024px) {
+    main .main__container {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        height: 100vh;
+    }
+    
+    main .main__container .main__header {
+        display: none;
+    }
+
+    main .main__container .desktop__container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        width: 100%;
+    }
+      
+    main .main__container .desktop__container .desktop__container--aside {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        max-width: 30%;
+        background-color: var(--card-container);
+        border-radius: 15px;
+        gap: 0.5rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        height: fit-content;
+    }
+
+    main .main__container .desktop__container .desktop__container--aside > h2 {
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weigth-Bold);
+        margin-bottom: 1.5rem;
+    }
+
+    main .main__container .desktop__container .desktop__container--aside button {
+        height: 3rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: var(--card-background);
+        color: var(--color-grey-1000);
+        font-size: var(--font-size-5);
+        font-weight: var(--font-weigth-Bold);
+        transition: .2s;
+    }
+
+    main .main__container .desktop__container .desktop__container--aside button:hover {
+        background-color: var(--card-backgroud-hover);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 70%;
+        background-color: var(--card-container);
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main > h2 {
+        font-size: var(--font-size-3);
+        margin-top: 0;
+        font-weight: var(--font-weigth-Bold);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list {
+        max-height: 42rem;
+        width: 100%;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list a {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        padding: 1rem;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--card-background);
+        border-radius: 5px;
+    }
+
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 11rem;
+        height: 100%;
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div h3 {
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weigth-Bold);
+    }
+    
+    main .main__container .desktop__container .desktop_container--main #vaccines__list li a div p {
+        line-height: var(--line-height-default);
+        font-size: var(--font-size-5);
+    }
+
+    
+
+}

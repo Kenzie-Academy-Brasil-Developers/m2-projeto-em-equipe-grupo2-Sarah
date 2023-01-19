@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARS.CoDE-2</title>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/global-styles.css">
+    <link rel="stylesheet" href="../styles/vaccines.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/modal-vaccine.css">
+</head>
+<body>
+    <header class="header__container">
+        <div class="container__logo">
+            <img src="../assets/covid.svg" alt="">
+            <h3>SARS<span>.CoDe</span>-2</h3>
+        </div>
+
+        <nav class="container__nav">
+            <div class="mobile__menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <ul class="nav__list">
+                <li><a class="anchor__covid-19" href="">COVID-19</a></li>
+                <span>|</span>
+                <li><a class="anchor__vaccine" id="style__active--anchor" href="">VACCINE</a></li>
+                <span>|</span>
+                <li><a class="anchor__news" href="">NEWS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main__container">
+                <div class="main__header">
+                    <select name="phase" id="phase">
+                    <option value="" disabled>Select Phases</option>
+                    <option value="All">All</option>
+                    <option value="Phase-I">Phase-I</option>
+                    <option value="Phase-II">Phase-II</option>
+                    <option value="Phase-III">Phase-III</option>
+                    <option value="Phase-IV">Phase-IV</option>
+                    <option value="FDA-Aproved">FDA-Aproved</option>
+                    </select>
+                </div>
+
+                <div class="desktop__container">
+                    <div class="desktop__container--aside">
+                        <h2>Categories</h2>
+                        
+                        <button class="all-vaccine__button">All</button>
+                        <button class="phaseI-vaccine_button">Phase-I</button>
+                        <button class="phaseII-vaccine_button">Phase-II</button>
+                        <button class="phaseIII-vaccine_button">Phase-III</button>
+                        <button class="phaseIV-vaccine_button">Phase-IV</button>
+                        <button class="aproved-vaccine_button">FDA-Aproved</button>
+                    </div>
+
+                    <div class="desktop_container--main">
+                        <h2>COVID-19 Vaccines List</h2>
+
+                        <div class="loader"></div>
+                        
+                        <ul id="vaccines__list"></ul>
+                    </div>
+                </div>          
+        </div>
+    </main>
+
+    <script type="module" src="../scripts/vaccines.js"></script>
+    
+    <script type="module" src="../scripts/vaccines.js"></script>
+</body>
+</html>

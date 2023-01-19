@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias</title>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/global-styles.css">
+    <link rel="stylesheet" href="../styles/news.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+</head>
+<body>
+
+   <header class="header__container">
+    <div class="container__logo">
+        <img src="../assets/covid.svg" alt="">
+        <h3>SARS<span>.CoDe</span>-2</h3>
+    </div>
+
+    <nav class="container__nav">
+        <div class="mobile__menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <ul class="nav__list">
+            <li><a id="" href="../../index.html">COVID-19</a></li>
+            <span>|</span>
+            <li><a id="" href="../pages/dashboard-vaccine.html">VACCINE</a></li>
+            <span>|</span>
+            <li><a id="style__active--anchor" href="../pages/dashboard-news.html">NEWS</a></li>
+        </ul>
+    </nav>
+   </header>
+
+   <main>
+    <div class="main__container">
+        <h2>Health News</h2>
+        <div class="loader" id="loader-add-remove"></div>
+
+        <ul id="news__list"></ul>
+        
+    </div>
+    
+   </main>
+    
+   <script type="module" src="../scripts/news.js"></script>
+</body>
+</html>
