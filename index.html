@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="./src/styles/global-styles.css" />
     <link rel="stylesheet" href="./src/styles/index.css" />
     <link rel="stylesheet" href="./src/styles/navbar.css" />
+    <link rel="stylesheet" href="./src/styles/loading.css">
 </head>
 
 <body>
+
     <header class="header__container">
         <div class="container__logo">
             <img src="./src/assets/covid.svg" alt="">
@@ -34,11 +36,11 @@
             </div>
 
             <ul class="nav__list">
-                <li><a id="" href="">COVID-19</a></li>
+                <li><a  id="style__active--anchor" href="">COVID-19</a></li>
                 <span>|</span>
-                <li><a id="" href="">VACCINE</a></li>
+                <li><a  href="./src/pages/dashboard-vaccine.html">VACCINE</a></li>
                 <span>|</span>
-                <li><a id="" href="">NEWS</a></li>
+                <li><a  href="">NEWS</a></li>
             </ul>
         </nav>
     </header>
@@ -87,6 +89,7 @@
                     <option value="Oceanian">Oceanian</option>
                 </select>
                 <div class="container__table">
+                    <div id="loader__add--remove" class="loader"></div>
                     <table class="table__container--allCountryInformation"></table>
 
                 </div>

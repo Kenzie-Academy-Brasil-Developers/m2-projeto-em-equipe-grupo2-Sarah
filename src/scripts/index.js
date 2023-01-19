@@ -1,3 +1,4 @@
+import { removeAddLoading } from "./loading.js";
 import { openNavbar } from "./navbar.js";
 import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
 
@@ -49,7 +50,7 @@ function printSearch() {
     list.innerHTML = ''
 
     const currentList = searchCountryFilter(listAllCountry, inputSearch.value);
-    console.log(currentList);
+
 
     renderCards(currentList)
   });
@@ -79,7 +80,7 @@ function printCardsFilterByContinet(){
       }
 
     })
-    console.log(btns)
+
 
     btns.forEach(btn => {
       btn.addEventListener('click', ()=>{
@@ -815,4 +816,4 @@ printGlobalInformation(listGlobal[0]);
 printCardsFilterByContinet()
 printSearch();
 startTimer();
-
+removeAddLoading()
