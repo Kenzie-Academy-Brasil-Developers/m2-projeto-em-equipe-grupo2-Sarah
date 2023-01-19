@@ -208,12 +208,9 @@ text-align: center;
         border-left: 1px solid rgb(237, 242, 255, 0.5);
         padding: 15px;
     }
-
-
 }
 
-
-@media(min-width: 1440px){
+@media(min-width: 1440px) {
     .container__filterByContinent--desktopVersion{
         width: 15%;
     }

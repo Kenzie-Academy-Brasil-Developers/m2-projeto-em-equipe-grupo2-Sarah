@@ -305,6 +305,17 @@ function redirectToNewsPage () {
     })
 }
 
+function showAndHideLoader () {
+    const vaccinesList = document.querySelector('#vaccines__list');
+    const loader = document.querySelector('.loader');
+
+    if (vaccinesList.childNodes.length > 0) {
+        loader.classList.add('hidden');
+    } else {
+        loader.classList.remove('hidden');
+    }
+}
+
    
 phaseButton()
 phaseSelect()
@@ -312,3 +323,4 @@ showMoreVaccineInformation ()
 openNavbar();
 redirectToCovidPage ();
 redirectToNewsPage ();
+showAndHideLoader ();
