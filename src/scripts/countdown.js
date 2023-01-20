@@ -9,6 +9,9 @@ let countDownReset = setInterval( () => {
     let minutes = Math.floor((countDowCalc % (1000 * 60 * 60)) / (1000 * 60));
 
     let seconds = Math.floor((countDowCalc % (1000 * 60)) / 1000);
+    
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
     document.getElementById("timer").innerHTML = `${minutes}:${seconds}`;
 
