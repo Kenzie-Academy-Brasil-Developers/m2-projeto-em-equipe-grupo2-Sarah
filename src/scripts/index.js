@@ -1,16 +1,24 @@
 import { removeAddLoading } from "./loading.js";
 import { openNavbar } from "./navbar.js";
-import { getAllCountrys, getAllCountrysInAfrican, getAllCountrysInAsia, getAllCountrysInEuropean, getAllCountrysInNorthernAmerican, getAllCountrysInOceanian, getAllCountrysInSorthernAmerican, getAllGlobalInformation } from "./requests.js";
+import {
+  getAllCountrys,
+  getAllCountrysInAfrican,
+  getAllCountrysInAsia,
+  getAllCountrysInEuropean,
+  getAllCountrysInNorthernAmerican,
+  getAllCountrysInOceanian,
+  getAllCountrysInSorthernAmerican,
+  getAllGlobalInformation,
+} from "./requests.js";
 
 const listGlobal = await getAllGlobalInformation();
 const listAllCountry = await getAllCountrys();
-const listCountryAsia = await getAllCountrysInAsia()
-const listCountryAfrican = await getAllCountrysInAfrican()
-const listCountryEuropean = await getAllCountrysInEuropean()
-const listCountryNorthernAmerican = await getAllCountrysInNorthernAmerican()
-const listCountrySorthernAmerican = await getAllCountrysInSorthernAmerican()
-const listCountryOceanian =  await getAllCountrysInOceanian()
-
+const listCountryAsia = await getAllCountrysInAsia();
+const listCountryAfrican = await getAllCountrysInAfrican();
+const listCountryEuropean = await getAllCountrysInEuropean();
+const listCountryNorthernAmerican = await getAllCountrysInNorthernAmerican();
+const listCountrySorthernAmerican = await getAllCountrysInSorthernAmerican();
+const listCountryOceanian = await getAllCountrysInOceanian();
 
 let troca = true;
 
@@ -44,75 +52,76 @@ function searchCountryFilter(list, search) {
 function printSearch() {
   const inputSearch = document.querySelector(".search__country");
 
-  const list = document.querySelector('.table__container--allCountryInformation')
+  const list = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
 
   inputSearch.addEventListener("keyup", (e) => {
-    list.innerHTML = ''
+    list.innerHTML = "";
 
     const currentList = searchCountryFilter(listAllCountry, inputSearch.value);
 
-
-    renderCards(currentList)
+    renderCards(currentList);
   });
 }
 
-function printCardsFilterByContinet(){
-    const select = document.querySelector('#select__continent')
-    const table = document.querySelector('.table__container--allCountryInformation')
-    const btns = document.querySelectorAll('.container__filterByContinent--desktopVersion > button')
+function printCardsFilterByContinet() {
+  const select = document.querySelector("#select__continent");
+  const table = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  const btns = document.querySelectorAll(
+    ".container__filterByContinent--desktopVersion > button"
+  );
 
-    select.addEventListener('change', ()=>{
-      table.innerHTML = ''
-      if(select.value == ''){
-        renderCards(listAllCountry)
-      } else if(select.value == 'Asian'){
-        renderCards(listCountryAsia)
-      }else if(select.value == 'African'){
-        renderCards(listCountryAfrican)
-      }else if(select.value == 'European'){
-        renderCards(listCountryEuropean)
-      }else if(select.value == 'Northern American'){
-        renderCards(listCountryNorthernAmerican)
-      }else if(select.value == 'Sorthern American'){
-        renderCards(listCountrySorthernAmerican)
-      }else if(select.value == 'Oceanian'){
-        renderCards(listCountryOceanian)
+  select.addEventListener("change", () => {
+    table.innerHTML = "";
+    if (select.value == "") {
+      renderCards(listAllCountry);
+    } else if (select.value == "Asian") {
+      renderCards(listCountryAsia);
+    } else if (select.value == "African") {
+      renderCards(listCountryAfrican);
+    } else if (select.value == "European") {
+      renderCards(listCountryEuropean);
+    } else if (select.value == "Northern American") {
+      renderCards(listCountryNorthernAmerican);
+    } else if (select.value == "Sorthern American") {
+      renderCards(listCountrySorthernAmerican);
+    } else if (select.value == "Oceanian") {
+      renderCards(listCountryOceanian);
+    }
+  });
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      table.innerHTML = "";
+      if (btn.value == "All") {
+        renderCards(listAllCountry);
+      } else if (btn.value == "Asian") {
+        renderCards(listCountryAsia);
+      } else if (btn.value == "African") {
+        renderCards(listCountryAfrican);
+      } else if (btn.value == "European") {
+        renderCards(listCountryEuropean);
+      } else if (btn.value == "Northern American") {
+        renderCards(listCountryNorthernAmerican);
+      } else if (btn.value == "Sorthern American") {
+        renderCards(listCountrySorthernAmerican);
+      } else if (btn.value == "Oceanian") {
+        renderCards(listCountryOceanian);
       }
-
-    })
-
-
-    btns.forEach(btn => {
-      btn.addEventListener('click', ()=>{
-        table.innerHTML = ''
-        if(btn.value == 'All'){
-          renderCards(listAllCountry)
-        } else if(btn.value == 'Asian'){
-          renderCards(listCountryAsia)
-        }else if(btn.value == 'African'){
-          renderCards(listCountryAfrican)
-        }else if(btn.value == 'European'){
-          renderCards(listCountryEuropean)
-        }else if(btn.value == 'Northern American'){
-          renderCards(listCountryNorthernAmerican)
-        }else if(btn.value == 'Sorthern American'){
-          renderCards(listCountrySorthernAmerican)
-        }else if(btn.value == 'Oceanian'){
-          renderCards(listCountryOceanian)
-        }
-      })
-    })
-
+    });
+  });
 }
 
-
- function renderCards(listAllCountry) {
+function renderCards(listAllCountry) {
   const tableListCountry = document.querySelector(
     ".table__container--allCountryInformation"
   );
 
   const tittle = document.createElement("tr");
-  tittle.classList.add('header__table')
+  tittle.classList.add("header__table");
 
   const tittleNum = document.createElement("th");
   tittleNum.innerText = "NUM";
@@ -128,65 +137,65 @@ function printCardsFilterByContinet(){
   });
   const tittleNewCases = document.createElement("th");
   tittleNewCases.innerText = "NEW CASES";
-  tittleNewCases.addEventListener('click',()=>{
+  tittleNewCases.addEventListener("click", () => {
     newCasesOrder();
-  })
+  });
   const tittleInfectionRisk = document.createElement("th");
   tittleInfectionRisk.innerText = "INFECTION RISK";
-  tittleInfectionRisk.addEventListener('click',()=>{
+  tittleInfectionRisk.addEventListener("click", () => {
     infectionRiskOrder();
-  })
+  });
   const tittleSeriusCritical = document.createElement("th");
   tittleSeriusCritical.innerText = "SERIOUS CRITICAL";
-  tittleSeriusCritical.addEventListener('click',()=>{
+  tittleSeriusCritical.addEventListener("click", () => {
     seriousCriticalOrder();
-  })
+  });
   const tittleActivesCases = document.createElement("th");
   tittleActivesCases.innerText = "ACTIVE CASES";
 
-  tittleActivesCases.addEventListener('click',()=>{
+  tittleActivesCases.addEventListener("click", () => {
     activeCasesOrder();
-  })
+  });
   const tittleTotalDeaths = document.createElement("th");
   tittleTotalDeaths.innerText = "TOTAL DEATHS";
-  tittleTotalDeaths.addEventListener('click',()=>{
+  tittleTotalDeaths.addEventListener("click", () => {
     totalDeathsOrder();
-  })
+  });
   const tittleNewDeaths = document.createElement("th");
   tittleNewDeaths.innerText = "NEW DEATHS";
-  tittleNewDeaths.addEventListener('click',()=>{
+  tittleNewDeaths.addEventListener("click", () => {
     newDeathsOrder();
-  })
+  });
   const tittleCaseFatalityRate = document.createElement("th");
   tittleCaseFatalityRate.innerText = "CASE FATALITY RATE(CFR)";
-  tittleCaseFatalityRate.addEventListener("click",()=>{
+  tittleCaseFatalityRate.addEventListener("click", () => {
     caseFatalityRateOder();
-  })
+  });
   const tittleTotalTests = document.createElement("th");
   tittleTotalTests.innerText = "TOTAL TESTS";
-  tittleTotalTests.addEventListener("click",()=>{
+  tittleTotalTests.addEventListener("click", () => {
     totalTestsOrder();
-  })
+  });
   const tittleTotalPercentage = document.createElement("th");
   tittleTotalPercentage.innerText = "TEST PERCENTAGE";
-  tittleTotalPercentage.addEventListener("click",()=>{
+  tittleTotalPercentage.addEventListener("click", () => {
     testPercentageOrder();
-  })
+  });
   const tittleTotalRecovered = document.createElement("th");
   tittleTotalRecovered.innerText = " TOTAL RECOVERED";
-  tittleTotalRecovered.addEventListener("click",()=>{
+  tittleTotalRecovered.addEventListener("click", () => {
     totalRecoveredOrder();
-  })
+  });
   const tittleRecoveryPercentage = document.createElement("th");
   tittleRecoveryPercentage.innerText = "RECOVERY PERCENTAGE";
-  tittleRecoveryPercentage.addEventListener("click",()=>{
+  tittleRecoveryPercentage.addEventListener("click", () => {
     recoveryProporationOrder();
-  })
+  });
   const tittlePopulation = document.createElement("th");
   tittlePopulation.innerText = "POPULATION";
-  tittlePopulation.addEventListener("click",()=>{
+  tittlePopulation.addEventListener("click", () => {
     populationOrder();
-  })
+  });
 
   tittle.append(
     tittleNum,
@@ -210,59 +219,55 @@ function printCardsFilterByContinet(){
 
   let i = 0;
   listAllCountry.forEach((element) => {
-    
     i++;
 
-
-
     const tittle = document.createElement("tr");
-    tittle.classList.add('table__line')
+    tittle.classList.add("table__line");
 
     const tittleNum = document.createElement("th");
     tittleNum.innerText = i;
-    tittleNum.classList.add('title__num')
+    tittleNum.classList.add("title__num");
     const tittleCountry = document.createElement("th");
     tittleCountry.innerText = element.Country;
     const tittleTotalCases = document.createElement("th");
     tittleTotalCases.innerText = element.TotalCases;
-    tittleTotalCases.classList.add('total__cases')
+    tittleTotalCases.classList.add("total__cases");
     const tittleNewCases = document.createElement("th");
     tittleNewCases.innerText = element.NewCases;
-    tittleNewCases.classList.add('total__newCases')
+    tittleNewCases.classList.add("total__newCases");
     const tittleInfectionRisk = document.createElement("th");
     tittleInfectionRisk.innerText = element.Infection_Risk;
-    tittleInfectionRisk.classList.add('total__cases')
+    tittleInfectionRisk.classList.add("total__cases");
     const tittleSeriusCritical = document.createElement("th");
     tittleSeriusCritical.innerText = element.Serious_Critical;
-    tittleSeriusCritical.classList.add('total__critical')
+    tittleSeriusCritical.classList.add("total__critical");
     const tittleActivesCases = document.createElement("th");
     tittleActivesCases.innerText = element.ActiveCases;
-    tittleActivesCases.classList.add('total__activeCases')
+    tittleActivesCases.classList.add("total__activeCases");
     const tittleTotalDeaths = document.createElement("th");
     tittleTotalDeaths.innerText = element.TotalDeaths;
-    tittleTotalDeaths.classList.add('total__deaths')
+    tittleTotalDeaths.classList.add("total__deaths");
     const tittleNewDeaths = document.createElement("th");
     tittleNewDeaths.innerText = element.NewDeaths;
-    tittleNewDeaths.classList.add('total__deaths')
+    tittleNewDeaths.classList.add("total__deaths");
     const tittleCaseFatalityRate = document.createElement("th");
     tittleCaseFatalityRate.innerText = element.Case_Fatality_Rate;
-    tittleCaseFatalityRate.classList.add('total__deaths')
+    tittleCaseFatalityRate.classList.add("total__deaths");
     const tittleTotalTests = document.createElement("th");
     tittleTotalTests.innerText = element.TotalTests;
-    tittleTotalTests.classList.add('total__tests')
+    tittleTotalTests.classList.add("total__tests");
     const tittleTotalPercentage = document.createElement("th");
     tittleTotalPercentage.innerText = element.Test_Percentage;
-    tittleTotalPercentage.classList.add('total__tests')
+    tittleTotalPercentage.classList.add("total__tests");
     const tittleTotalRecovered = document.createElement("th");
     tittleTotalRecovered.innerText = element.TotalRecovered;
-    tittleTotalRecovered.classList.add('total__tests')
+    tittleTotalRecovered.classList.add("total__tests");
     const tittleRecoveryPercentage = document.createElement("th");
     tittleRecoveryPercentage.innerText = element.Recovery_Proporation;
-    tittleRecoveryPercentage.classList.add('total__cases')
+    tittleRecoveryPercentage.classList.add("total__cases");
     const tittlePopulation = document.createElement("th");
     tittlePopulation.innerText = element.Population;
-    tittlePopulation.classList.add('total__cases')
-
+    tittlePopulation.classList.add("total__cases");
 
     tittle.append(
       tittleNum,
@@ -284,12 +289,11 @@ function printCardsFilterByContinet(){
 
     tableListCountry.append(tittle);
 
-    if(i % 2 == 0){
-      tittle.classList.add('style__elementTable--even')
-    }else{
-      tittle.classList.add('style__elementTable--odd')
+    if (i % 2 == 0) {
+      tittle.classList.add("style__elementTable--even");
+    } else {
+      tittle.classList.add("style__elementTable--odd");
     }
-
   });
 }
 
@@ -329,497 +333,493 @@ async function alphabeticalOrder() {
   await renderCards(orderList);
 }
 
-async function totalCasesOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.TotalCases > b.TotalCases) {
-            return 1;
-          } else if (a.TotalCases < b.TotalCases) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.TotalCases < b.TotalCases) {
-            return 1;
-          } else if (a.TotalCases > b.TotalCases) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function totalCasesOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.TotalCases > b.TotalCases) {
+        return 1;
+      } else if (a.TotalCases < b.TotalCases) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function newCasesOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.NewCases > b.NewCases) {
-            return 1;
-          } else if (a.NewCases < b.NewCases) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.NewCases < b.NewCases) {
-            return 1;
-          } else if (a.NewCases > b.NewCases) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.TotalCases < b.TotalCases) {
+        return 1;
+      } else if (a.TotalCases > b.TotalCases) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function infectionRiskOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Infection_Risk > b.Infection_Risk) {
-            return 1;
-          } else if (a.Infection_Risk < b.Infection_Risk) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Infection_Risk < b.Infection_Risk) {
-            return 1;
-          } else if (a.Infection_Risk > b.Infection_Risk) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function newCasesOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.NewCases > b.NewCases) {
+        return 1;
+      } else if (a.NewCases < b.NewCases) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function seriousCriticalOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Serious_Critical > b.Serious_Critical) {
-            return 1;
-          } else if (a.Serious_Critical < b.Serious_Critical) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Serious_Critical < b.Serious_Critical) {
-            return 1;
-          } else if (a.Serious_Critical > b.Serious_Critical) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.NewCases < b.NewCases) {
+        return 1;
+      } else if (a.NewCases > b.NewCases) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function activeCasesOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.TotalDeaths > b.TotalDeaths) {
-            return 1;
-          } else if (a.TotalDeaths < b.TotalDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.TotalDeaths < b.TotalDeaths) {
-            return 1;
-          } else if (a.TotalDeaths > b.TotalDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function infectionRiskOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Infection_Risk > b.Infection_Risk) {
+        return 1;
+      } else if (a.Infection_Risk < b.Infection_Risk) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function totalDeathsOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.TotalDeaths > b.TotalDeaths) {
-            return 1;
-          } else if (a.TotalDeaths < b.TotalDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.TotalDeaths < b.TotalDeaths) {
-            return 1;
-          } else if (a.TotalDeaths > b.TotalDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.Infection_Risk < b.Infection_Risk) {
+        return 1;
+      } else if (a.Infection_Risk > b.Infection_Risk) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function newDeathsOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.NewDeaths > b.NewDeaths) {
-            return 1;
-          } else if (a.NewDeaths < b.NewDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.NewDeaths < b.NewDeaths) {
-            return 1;
-          } else if (a.NewDeaths > b.NewDeaths) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function seriousCriticalOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Serious_Critical > b.Serious_Critical) {
+        return 1;
+      } else if (a.Serious_Critical < b.Serious_Critical) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function caseFatalityRateOder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Case_Fatality_Rate > b.Case_Fatality_Rate) {
-            return 1;
-          } else if (a.Case_Fatality_Rate < b.Case_Fatality_Rate) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Case_Fatality_Rate < b.Case_Fatality_Rate) {
-            return 1;
-          } else if (a.Case_Fatality_Rate > b.Case_Fatality_Rate) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.Serious_Critical < b.Serious_Critical) {
+        return 1;
+      } else if (a.Serious_Critical > b.Serious_Critical) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function totalTestsOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.TotalTests > b.TotalTests) {
-            return 1;
-          } else if (a.TotalTests < b.TotalTests) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.TotalTests < b.TotalTests) {
-            return 1;
-          } else if (a.TotalTests > b.TotalTests) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function activeCasesOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.TotalDeaths > b.TotalDeaths) {
+        return 1;
+      } else if (a.TotalDeaths < b.TotalDeaths) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function testPercentageOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Test_Percentage > b.Test_Percentage) {
-            return 1;
-          } else if (a.Test_Percentage < b.Test_Percentage) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Test_Percentage < b.Test_Percentage) {
-            return 1;
-          } else if (a.Test_Percentage > b.Test_Percentage) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.TotalDeaths < b.TotalDeaths) {
+        return 1;
+      } else if (a.TotalDeaths > b.TotalDeaths) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function totalRecoveredOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.TotalRecovered > b.TotalRecovered) {
-            return 1;
-          } else if (a.TotalRecovered < b.TotalRecovered) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.TotalRecovered < b.TotalRecovered) {
-            return 1;
-          } else if (a.TotalRecovered > b.TotalRecovered) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function totalDeathsOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.TotalDeaths > b.TotalDeaths) {
+        return 1;
+      } else if (a.TotalDeaths < b.TotalDeaths) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
-}
-
-async function recoveryProporationOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Recovery_Proporation > b.Recovery_Proporation) {
-            return 1;
-          } else if (a.Recovery_Proporation < b.Recovery_Proporation) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Recovery_Proporation < b.Recovery_Proporation) {
-            return 1;
-          } else if (a.Recovery_Proporation > b.Recovery_Proporation) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+    } else {
+      if (a.TotalDeaths < b.TotalDeaths) {
+        return 1;
+      } else if (a.TotalDeaths > b.TotalDeaths) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
-async function populationOrder(){
-    const tableListCountry = document.querySelector(
-        ".table__container--allCountryInformation"
-      );
-      tableListCountry.innerHTML = " ";
-      const orderList = listAllCountry;
-      orderList.sort((a, b) => {
-        if (troca == true) {
-          if (a.Population > b.Population) {
-            return 1;
-          } else if (a.Population < b.Population) {
-            return -1;
-          } else {
-            return 0;
-          }
-        } else {
-          if (a.Population < b.Population) {
-            return 1;
-          } else if (a.Population > b.Population) {
-            return -1;
-          } else {
-            return 0;
-          }
-        }
-      });
-    
-      if (troca == true) {
-        troca = false;
-      } else if (troca == false) {
-        troca = true;
+async function newDeathsOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.NewDeaths > b.NewDeaths) {
+        return 1;
+      } else if (a.NewDeaths < b.NewDeaths) {
+        return -1;
+      } else {
+        return 0;
       }
-    
-      await renderCards(orderList);
+    } else {
+      if (a.NewDeaths < b.NewDeaths) {
+        return 1;
+      } else if (a.NewDeaths > b.NewDeaths) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
 }
 
+async function caseFatalityRateOder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Case_Fatality_Rate > b.Case_Fatality_Rate) {
+        return 1;
+      } else if (a.Case_Fatality_Rate < b.Case_Fatality_Rate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.Case_Fatality_Rate < b.Case_Fatality_Rate) {
+        return 1;
+      } else if (a.Case_Fatality_Rate > b.Case_Fatality_Rate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
 
-  function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display  = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+  await renderCards(orderList);
 }
 
-window.onload = function(){
-    let  fiveMinutes = 60 * 5,
-        select = document.querySelector('#time');
-        select.innerHTML = display
-        console.log(select)
+async function totalTestsOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.TotalTests > b.TotalTests) {
+        return 1;
+      } else if (a.TotalTests < b.TotalTests) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.TotalTests < b.TotalTests) {
+        return 1;
+      } else if (a.TotalTests > b.TotalTests) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
 
-    startTimer(fiveMinutes, display);
-    
-};   
- 
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
 
+  await renderCards(orderList);
+}
 
+async function testPercentageOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Test_Percentage > b.Test_Percentage) {
+        return 1;
+      } else if (a.Test_Percentage < b.Test_Percentage) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.Test_Percentage < b.Test_Percentage) {
+        return 1;
+      } else if (a.Test_Percentage > b.Test_Percentage) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
 
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
+}
+
+async function totalRecoveredOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.TotalRecovered > b.TotalRecovered) {
+        return 1;
+      } else if (a.TotalRecovered < b.TotalRecovered) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.TotalRecovered < b.TotalRecovered) {
+        return 1;
+      } else if (a.TotalRecovered > b.TotalRecovered) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
+}
+
+async function recoveryProporationOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Recovery_Proporation > b.Recovery_Proporation) {
+        return 1;
+      } else if (a.Recovery_Proporation < b.Recovery_Proporation) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.Recovery_Proporation < b.Recovery_Proporation) {
+        return 1;
+      } else if (a.Recovery_Proporation > b.Recovery_Proporation) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
+}
+
+async function populationOrder() {
+  const tableListCountry = document.querySelector(
+    ".table__container--allCountryInformation"
+  );
+  tableListCountry.innerHTML = " ";
+  const orderList = listAllCountry;
+  orderList.sort((a, b) => {
+    if (troca == true) {
+      if (a.Population > b.Population) {
+        return 1;
+      } else if (a.Population < b.Population) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } else {
+      if (a.Population < b.Population) {
+        return 1;
+      } else if (a.Population > b.Population) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
+
+  if (troca == true) {
+    troca = false;
+  } else if (troca == false) {
+    troca = true;
+  }
+
+  await renderCards(orderList);
+}
+
+function startTimer(duration, display) {
+  let timer = duration,
+    minutes,
+    seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    console.log("click")
+    display.innerText = `${minutes} : ${seconds}`
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+  }, 1000);
+}
+
+window.onload = function () {
+  const fiveMinutes = 60 * 5;
+  const display = document.querySelector("#time");
+  console.log(display);
+  console.log("click");
+
+  startTimer(fiveMinutes, display);
+};
 
 renderCards(listAllCountry);
 openNavbar();
 printGlobalInformation(listGlobal[0]);
-printCardsFilterByContinet()
+printCardsFilterByContinet();
 printSearch();
 startTimer();
-removeAddLoading()
+removeAddLoading();
